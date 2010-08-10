@@ -1,18 +1,9 @@
 function(o) {
-
-  function toArray(coord) {
-    result = [];
-    for each (c in coord.split("-")) {
-      result.push(parseInt(c));
-    }
-    return result;
-  }
-
   if (o.corpus_name) { //corpus
     //corpus name
     emit([o._id], {name:o.corpus_name});
     //corpus users
-    for each (u in o.users) {
+    for each (var u in o.users) {
       emit([o._id], {user:u});
     }
   } else if (o.item_corpus) { //item
@@ -23,30 +14,25 @@ function(o) {
       resource:o.resource
     });
     //item topics
-    topics = o.topics;
-    for (v in topics) {
-      for each (t in topics[v]) {
-        emit([o.item_corpus, o._id], {viewpoint:v, topic:t});
-      }
+    for (var t in o.topics) {
+      emit([o.item_corpus, o._id], {
+        viewpoint: o.topics[t].viewpoint, 
+        topic: t
+      });
     }
-    //item fragments
-    fragments = o.fragments;
-    for (coord in fragments) {
-      f = fragments[coord];
-      topics = f.topics;
-      for (v in topics) {
-        for each (t in topics[v]) {
-          emit(
-            [o.item_corpus,o._id].concat(toArray(coord)), 
-            {highlight:{
-              viewpoint:v,
-              topic:t,
-              thumbnail:f.thumbnail,
-              text:f.text
-            }}
-          );
-        }
-      }
+    //item highlights
+    for (var h in o.highlights) {
+      var highlight = o.highlights[h];
+      emit(
+        [o.item_corpus,o._id].concat(highlight.coordinates),
+        {highlight:{
+          id: h,
+          viewpoint: highlight.viewpoint,
+          topic: highlight.topic,
+          thumbnail: highlight.thumbnail,
+          text: highlight.text
+        }}
+      );
     }
   }
 }
