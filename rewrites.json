@@ -1,5 +1,8 @@
 [
   {
+    "from": ":object", 
+    "to": "../../:object"
+  }, { 
     "from": "user/:user", 
     "to": "_view/user",
     "query": {
