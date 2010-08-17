@@ -15,10 +15,10 @@ function(o) {
     });
     //item topics
     for (var t in o.topics) {
-      emit([o.item_corpus, o._id], {
+      emit([o.item_corpus, o._id], {topic:{
         viewpoint: o.topics[t].viewpoint, 
-        topic: t
-      });
+        id: t
+      }});
     }
     //item highlights
     for (var h in o.highlights) {
