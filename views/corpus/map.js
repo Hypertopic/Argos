@@ -24,14 +24,15 @@ function(o) {
     for (var h in o.highlights) {
       var highlight = o.highlights[h];
       emit(
-        [o.item_corpus,o._id].concat(highlight.coordinates),
-        {highlight:{
-          id: h,
-          viewpoint: highlight.viewpoint,
-          topic: highlight.topic,
+        [o.item_corpus, o._id, h], {
+          coordinates: highlight.coordinates,
+          topic: {
+            viewpoint: highlight.viewpoint,
+            id: highlight.topic
+          },
           thumbnail: highlight.thumbnail,
           text: highlight.text
-        }}
+        }
       );
     }
   }
