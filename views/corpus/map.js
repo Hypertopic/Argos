@@ -1,4 +1,19 @@
 function(o) {
+
+  function isReserved(key) {
+    switch (key) {
+      case "_id":
+      case "_rev": 
+      case "item_corpus":
+      case "item_name":
+      case "thumbnail":
+      case "resource":
+      case "topics":
+      case "highlights": return true;
+    }
+    return false;
+  }
+
   if (o.corpus_name) { //corpus
     //corpus name
     emit([o._id], {name:o.corpus_name});
@@ -34,6 +49,14 @@ function(o) {
           text: highlight.text
         }
       );
+    }
+    //item attributes
+    for (var key in o) {
+      if (!isReserved(key)) {
+        var entry = {};
+        entry[key] = o[key];
+        emit([o.item_corpus, o._id], entry);
+      }
     }
   }
 }
