@@ -4,6 +4,10 @@
        "to": "../../"
    },
    {
+       "from": ":object",
+       "to": "../../:object"
+   },
+   {
        "from": "user/:user",
        "to": "_view/user",
        "query": {
@@ -132,14 +136,14 @@
        }
    },
    {
-       "from": "actor/",
+       "from": "v1/actor/",
        "to": "_list/actors/user",
        "query": {
            "group": true
        }
    },
    {
-       "from": "actor/:user",
+       "from": "v1/actor/:user",
        "to": "_list/actor/user",
        "query": {
            "key": [":user"],
@@ -147,7 +151,10 @@
        }
    },
    {
-       "from": ":object",
-       "to": "../../:object"
+       "from": "v1/viewpoint/:viewpoint/",
+       "to": "_list/viewpoint/viewpoint",
+       "query": {
+           "key": [":viewpoint"]
+       }
    }
 ]
