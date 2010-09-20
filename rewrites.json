@@ -135,5 +135,12 @@
            ],
            "reduce": false
        }
+   },
+   {
+       "from": "actor/:user",
+       "to": "_list/actor/user",
+       "query": {
+           "key": [":user"]
+       }
    }
 ]
