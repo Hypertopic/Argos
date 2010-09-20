@@ -4,16 +4,11 @@
        "to": "../../"
    },
    {
-       "from": ":object",
-       "to": "../../:object"
-   },
-   {
        "from": "user/:user",
        "to": "_view/user",
        "query": {
-           "key": [
-               ":user"
-           ]
+           "key": [":user"],
+           "reduce": false
        }
    },
    {
@@ -137,10 +132,22 @@
        }
    },
    {
+       "from": "actor/",
+       "to": "_list/actors/user",
+       "query": {
+           "group": true
+       }
+   },
+   {
        "from": "actor/:user",
        "to": "_list/actor/user",
        "query": {
-           "key": [":user"]
+           "key": [":user"],
+           "reduce": false
        }
+   },
+   {
+       "from": ":object",
+       "to": "../../:object"
    }
 ]
