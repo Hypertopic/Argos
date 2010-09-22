@@ -163,5 +163,12 @@
        "query": {
            "key": [":viewpoint",":topic"]
        }
+   },
+   {
+       "from": "v1/entity/:corpus/",
+       "to": "_list/corpusV1/corpusV1",
+       "query": {
+           "key": [":corpus"]
+       }
    }
 ]
