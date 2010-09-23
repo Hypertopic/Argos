@@ -165,10 +165,16 @@
        }
    },
    {
+       "from": "v1/entity/:corpus/:item/:coordinates",
+       "to": "_list/fragmentV1/fragmentV1",
+       "query": {
+           "key": [":item", ":coordinates"]
+       }
+   },
+   {
        "from": "v1/entity/:corpus/:item",
        "to": "_show/itemV1/:item"
-   }
-,
+   },
    {
        "from": "v1/entity/:corpus/",
        "to": "_list/corpusV1/corpusV1",
