@@ -165,6 +165,11 @@
        }
    },
    {
+       "from": "v1/entity/:corpus/:item",
+       "to": "_show/itemV1/:item"
+   }
+,
+   {
        "from": "v1/entity/:corpus/",
        "to": "_list/corpusV1/corpusV1",
        "query": {
