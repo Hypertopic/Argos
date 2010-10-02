@@ -39,7 +39,8 @@ function(o) {
     for (var h in o.highlights) {
       var highlight = o.highlights[h];
       emit(
-        [o.item_corpus, o._id, h], {
+        [o.item_corpus, o._id], {highlight:{
+          id: h,
           coordinates: highlight.coordinates,
           topic: {
             viewpoint: highlight.viewpoint,
@@ -47,7 +48,7 @@ function(o) {
           },
           thumbnail: highlight.thumbnail,
           text: highlight.text
-        }
+        }}
       );
     }
     //item attributes
