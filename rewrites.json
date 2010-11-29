@@ -1,5 +1,14 @@
 [
    {
+       "from": "item/",
+       "to": "_view/resource",
+       "query": {
+           "key": [
+               ":resource"
+           ]
+       }
+   },
+   {
        "from": "",
        "to": "../../"
    },
@@ -72,15 +81,6 @@
                ":topic",
                {
                }
-           ]
-       }
-   },
-   {
-       "from": "resource/:resource",
-       "to": "_view/resource",
-       "query": {
-           "key": [
-               ":resource"
            ]
        }
    },
