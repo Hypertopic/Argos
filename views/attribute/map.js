@@ -3,7 +3,8 @@ function(o) {
   function isReserved(key) {
     switch (key) {
       case "_id":
-      case "_rev": 
+      case "_rev":
+      case "_attachments": 
       case "item_corpus":
       case "item_name":
       case "thumbnail":

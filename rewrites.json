@@ -1,5 +1,13 @@
 [
    {
+       "to": "../../",
+       "from": ""
+   },
+   {
+       "to": "../../:object",
+       "from": ":object"
+   },
+   {
        "from": "item/",
        "to": "_view/resource",
        "query": {
@@ -173,9 +181,5 @@
        "query": {
            "key": [":corpus"]
        }
-   },
-   {
-     "from" : ":db/*",
-     "to" : "../../*"
    }
 ]
