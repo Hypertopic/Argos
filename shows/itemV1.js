@@ -1,9 +1,4 @@
 function(o, req) {
-  start({
-      "headers": {
-        "Content-Type": "text/html"
-       }
-    });
   send('<entity>\n');
   for (var key in o) {
     if (key[0]!='_') {
