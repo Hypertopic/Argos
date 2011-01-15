@@ -13,11 +13,11 @@ function(doc, req) {
   xmlDoc.appendChild(<attribute_registry SHOW_ATTRIBUTES="hide"/>);
   var root 
     = <node ID={doc._id} text={enc(doc.viewpoint_name)}/>;
-  root.appendChild(<attribute NAME="REV" VALUE={doc._rev}/>);
+  root.appendChild(<attribute NAME="REVISION" VALUE={doc._rev}/>);
   if(doc.users)
     for(var i=0, user; user = doc.users[i]; i++)
       root.appendChild(
-        <attribute NAME="USER" VALUE={JSON.stringify(user)}/>);
+        <attribute NAME="USER" VALUE={enc(user)}/>);
   xmlDoc.appendChild(root);
 
   var uppers = [];
@@ -33,7 +33,7 @@ function(doc, req) {
       doc.topics[id].narrower = [];
     
     doc.topics[id].xmlNode 
-      = <node ID={id} text={enc(doc.topics[id].name)} />;
+      = <node ID={id} TEXT={enc(doc.topics[id].name)} />;
   }
   
   //log(uppers);

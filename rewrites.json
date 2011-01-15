@@ -181,5 +181,9 @@
        "query": {
            "key": [":corpus"]
        }
+   },
+   {
+       "from": "freemind/viewpoint/:viewpoint",
+       "to": "_show/viewpoint/:viewpoint"
    }
 ]
