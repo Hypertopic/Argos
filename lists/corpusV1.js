@@ -1,4 +1,9 @@
 function(head, req) {
+  start({
+      "headers": {
+        "Content-Type": "text/xml"
+       }
+    });
   send('<entity>\n');
   while (r = getRow()) {
     if (r.value.name) {

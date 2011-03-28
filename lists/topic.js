@@ -1,5 +1,9 @@
 function(head, req) {
-
+  start({
+      "headers": {
+        "Content-Type": "text/xml"
+       }
+    });
   function format(array) {
     var result = array[0];
     for (var i=1; i<array.length; i++) {

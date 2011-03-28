@@ -1,4 +1,9 @@
 function(head, req) {
+  start({
+      "headers": {
+        "Content-Type": "text/xml"
+       }
+    });
   var name;
   var topics =[];
   while (r = getRow()) {
