@@ -1,14 +1,15 @@
 function(doc, req) {
   // !code helpers/md5.js
-  
+
   function serializeId(id){
       return (id.indexOf("ID_") == 0) ? hex_md5(id) : id;
   }
   function appendSubTopics(node){
-    var id = serializeId(node.@ID.toString());
-    log(node.@TEXT.toString());
-    if(!(id in viewpoint.topics)) 
-      viewpoint.topics[id] = { 
+  	if(node.@ID.toString() == "") return false;
+		var id = serializeId(node.@ID.toString());
+    //log(node.@TEXT.toString());
+    if(!(id in viewpoint.topics))
+      viewpoint.topics[id] = {
         "name": node.@TEXT.toString(), "broader": []
       };
     else
@@ -16,16 +17,17 @@ function(doc, req) {
         viewpoint.topics[id].name = node.@TEXT.toString();
     for each(var childNode in node.node)
     {
+    	if(childNode.@ID.toString() == "") continue;
       var childId = serializeId(childNode.@ID.toString());
-
       if(!(childId in viewpoint.topics))
-        viewpoint.topics[childId] = { 
+        viewpoint.topics[childId] = {
           "name": childNode.@TEXT.toString(), "broader": []
         };
       else
         if(!viewpoint.topics[childId].name)
           viewpoint.topics[childId].name = childNode.@TEXT.toString();
       viewpoint.topics[childId].broader.push(id);
+      appendSubTopics(childNode);
     }
 
     for each(var linkNode in node.arrowlink)
@@ -40,16 +42,16 @@ function(doc, req) {
   var freemind = new XML(req.body);
   var viewpoint={};
   viewpoint.viewpoint_name = freemind.node.@TEXT.toString();
-  viewpoint._rev 
+  viewpoint._rev
     = freemind.node.attribute.(@NAME == 'REVISION').@VALUE.toString();
   if(!viewpoint._rev) delete viewpoint._rev;
 
   for each(var attr in freemind.node.attribute.(@NAME == 'USER'))
-    if(viewpoint.users) 
+    if(viewpoint.users)
       viewpoint.users.push(attr.@VALUE.toString());
     else
-      viewpoint.users = [attr.@VALUE.toString()]; 
-  if(freemind.node.node.length() > 0){ 
+      viewpoint.users = [attr.@VALUE.toString()];
+  if(freemind.node.node.length() > 0){
     viewpoint.topics = {};
     for each(var node in freemind.node.node)
       appendSubTopics(node);
@@ -59,6 +61,7 @@ function(doc, req) {
     delete viewpoint._rev;
     viewpoint._id = req.uuid;
     var resp = JSON.stringify({"ok": true, "id": req.uuid});
+    log(viewpoint);
     return [viewpoint, resp];
   }
   //Update viewpoint
