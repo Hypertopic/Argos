@@ -1,6 +1,10 @@
-# Argos
+# Argos - Viewpoints management service
 
-Argos is a Web Service for cooperative cataloguing, qualitative analysis of images, and qualitative analysis of texts.
+License: [GNU Affero General Public License](http://www.gnu.org/licenses/agpl.html)
+
+Contact: <aurelien.benel@utt.fr>
+
+Home page: <http://argos-viewpoint.sf.net/>
 
 ## Install CouchDB
 
@@ -20,6 +24,3 @@ Then, install Argos by issue following commands:
     cd Argos
     couchapp push . http://user:pass@127.0.0.1:5984/argos
 
-## License
-
-Licensed under GUN GPL: http://www.gnu.org/licenses/gpl.html
