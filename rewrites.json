@@ -1,7 +1,13 @@
 [
+   { 
+     "from": "", 
+     "to": "../../",
+     "method": "POST"
+   },
    {
        "to": "_show/index",
-       "from": ""
+       "from": "",
+       "method": "GET"
    },
    {
        "to": "../../:object",
