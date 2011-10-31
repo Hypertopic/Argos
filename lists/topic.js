@@ -13,6 +13,10 @@ function(head, req) {
     return result;
   }
 
+  function xmlencode(string) {
+    return string.replace(/\&/g,'&'+'amp;').replace(/</g,'&'+'lt;');
+  }
+
   var name;
   var broader = [];
   var narrower = [];
@@ -48,14 +52,12 @@ function(head, req) {
     send('</relatedTopic>\n');
   }
   for each (i in items) {
-    send('<entity href="../../../entity/'+i.corpus+"/"+i.id+'">');
-    send(i.name);
-    send('</entity>\n');
+    send('<entity href="../../../entity/'+i.corpus+"/"+i.id+'"/>\n');
   }
   for each (h in highlights) {
     send('<entity href="../../../entity/'+h.corpus+"/"+h.item+"/");
     send(format(h.coordinates)+'">');
-    send(h.text);
+    send(xmlencode(h.text));
     send('</entity>\n');
   }
   send('</topic>\n');

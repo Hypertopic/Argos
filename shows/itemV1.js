@@ -1,4 +1,9 @@
 function(o, req) {
+
+  function xmlencode(string) {
+    return string.replace(/\&/g,'&'+'amp;').replace(/</g,'&'+'lt;');
+  }
+
   send('<entity>\n');
   for (var key in o) {
     if (key[0]!='_') {
@@ -15,8 +20,13 @@ function(o, req) {
           break;
         case 'resource':
           send('<resource name="source" href="');
-          send(o.resource);
+          send(xmlencode(o.resource));
           send('"/>\n');
+          if (o.resource.indexOf('picture')>=0) {
+            send('<resource name="thumbnail" href="');
+            send(o.resource.replace("picture", "thumbnail"));
+            send('"/>\n');
+          }
           break;
         case 'topics':
           var topics = o.topics;
