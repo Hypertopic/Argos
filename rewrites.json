@@ -1,5 +1,14 @@
 [
    { 
+       "from": "item/",
+       "to": "_view/resource",
+       "query": {
+           "key": [
+               ":resource"
+           ]
+       }
+   },
+   {
      "from": "", 
      "to": "../../",
      "method": "POST"
@@ -12,15 +21,6 @@
    {
        "to": "../../:object",
        "from": ":object"
-   },
-   {
-       "from": "item/",
-       "to": "_view/resource",
-       "query": {
-           "key": [
-               ":resource"
-           ]
-       }
    },
    {
        "from": "user/:user",
