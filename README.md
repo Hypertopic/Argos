@@ -5,7 +5,7 @@ License: [GNU Affero General Public License](http://www.gnu.org/licenses/agpl.ht
 
 Contact: <aurelien.benel@utt.fr>
 
-Home page: <http://argos-viewpoint.sf.net/>
+Home page: <https://github.com/Hypertopic/Argos>
 
 Installation requirements
 -------------------------
