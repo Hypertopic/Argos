@@ -1,4 +1,5 @@
-# Argos - Viewpoints management service
+ARGOS - Contradictory/complementary categorisations management
+==============================================================
 
 License: [GNU Affero General Public License](http://www.gnu.org/licenses/agpl.html)
 
@@ -6,21 +7,19 @@ Contact: <aurelien.benel@utt.fr>
 
 Home page: <http://argos-viewpoint.sf.net/>
 
-## Install CouchDB
+Installation requirements
+-------------------------
 
-You will need CouchDB (version 1.0 or newer). See [Apache CouchDB project](http://couchdb.apache.org/) for more information.
+* Git client
+* [CouchDB](http://couchdb.apache.org/)
+* [CouchApp](https://github.com/jchris/couchapp) 
 
-## Install CouchApp
+Installation procedure
+----------------------
 
-[CouchApp](https://github.com/jchris/couchapp) is a tool for implementing standalone CouchDB application, it makes implementation of Argos much easier.
+* Create a database named ``argos`` at <http://127.0.0.1:5984/_utils>.
 
-## Install Argos
+* In any folder:
 
-First, you should create a database on installed CouchDB. You might also want to set admin access. See [screencast](http://www.youtube.com/watch?v=oHKvV3Nh-CI)
-
-Then, install Argos by issue following commands:
-
-    git clone git://github.com/benel/Argos.git
-    cd Argos
-    couchapp push . http://user:pass@127.0.0.1:5984/argos
-
+        git clone git://github.com/Hypertopic/Argos.git
+        couchapp push Argos http://127.0.0.1:5984/argos
