@@ -5,9 +5,7 @@ function (newDoc, oldDoc, userCtx, secObj) {
     if(!newDoc.topics) return true;
     var viewpoint = require("lib/viewpoint");
     var sorted = viewpoint.topologicalSort(newDoc.topics);
-    if(sorted === false)
-      v.forbidden("There is a cycle in the viewpoint between topics!")
-    else
-      return true;
+    v.assert(sorted, "There is a cycle in the viewpoint between topics!");
+    return true;
   }
 }
