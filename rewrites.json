@@ -80,26 +80,26 @@
     }
   }, {
     "from": "v1/actor/",
-    "to": "_list/actors/user",
+    "to": "_list/actorsV1/user",
     "query": {
        "group": "true"
     }
   }, {
     "from": "v1/actor/:user",
-    "to": "_list/actor/user",
+    "to": "_list/actorV1/user",
     "query": {
        "key": [":user"],
        "reduce": "false"
     }
   }, {
     "from": "v1/viewpoint/:viewpoint/",
-    "to": "_list/viewpoint/viewpoint",
+    "to": "_list/viewpointV1/viewpoint",
     "query": {
        "key": [":viewpoint"]
     }
   }, {
     "from": "v1/viewpoint/:viewpoint/topic/:topic",
-    "to": "_list/topic/viewpoint",
+    "to": "_list/topicV1/viewpoint",
     "query": {
        "key": [":viewpoint",":topic"]
     }
