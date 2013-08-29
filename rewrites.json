@@ -120,6 +120,6 @@
     }
   }, {
     "from": "freemind/viewpoint/:viewpoint",
-    "to": "_show/viewpoint/:viewpoint"
+    "to": "_show/viewpoint_freemind/:viewpoint"
   }
 ]
