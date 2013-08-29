@@ -42,11 +42,7 @@
     "to": "../../:item/:resource"
   }, {
     "from": "viewpoint/:viewpoint",
-    "to": "_view/viewpoint",
-    "query": {
-       "startkey": [":viewpoint"],
-       "endkey": [":viewpoint", {}]
-    }
+    "to": "_show/viewpoint/:viewpoint"
   }, {
     "from": "topic/:viewpoint/:topic",
     "to": "_view/viewpoint",
