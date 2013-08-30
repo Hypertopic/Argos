@@ -32,8 +32,9 @@
     }
   }, {
     "from": "item/:corpus/:item",
-    "to": "_view/corpus",
+    "to": "_list/item/corpus",
     "query": {
+       "include_docs": "true",
        "startkey": [":corpus", ":item"],
        "endkey": [":corpus", ":item", {}]
     }

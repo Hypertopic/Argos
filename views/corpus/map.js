@@ -30,10 +30,11 @@ function(o) {
     });
     //item topics
     for (var t in o.topics) {
+      var viewpoint_id = o.topics[t].viewpoint;
       emit([o.item_corpus, o._id], {topic:{
-        viewpoint: o.topics[t].viewpoint, 
+        viewpoint: viewpoint_id,
         id: t
-      }});
+      }, _id: viewpoint_id});
     }
     //item highlights
     for (var h in o.highlights) {
