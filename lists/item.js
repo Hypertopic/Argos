@@ -11,27 +11,18 @@ function (head, req) {
   });
 
   provides("html", function() {
-    var viewpoints = {};
-    function push(viewpoint, t) {
-      if (viewpoint) {
-        var v = viewpoint._id;
-        if (!viewpoints[v]) {
-          viewpoints[v] = new hypertopic.Viewpoint(viewpoint);
-        }
-        viewpoints[v].bind(t);
-      }
-    }
+    var item = new hypertopic.Item();
     while (r = getRow()) {
-      var v = r.value;
-      if (v.topic && r.doc) {
-        if (!v.coordinates) {
-          push(r.doc, v.topic.id);
+      var key = r.key;
+      var value = r.value;
+      if (key.length==2) { // Whole item
+        if (value.topic) {
+          item.addTopic(r.doc, value.topic.id);
+        } else {
+          item.addAttributes(value);
         }
       }
     }
-    send('<style type="text/css">.bound {font-weight: bold}</style>');
-    for each (var v in viewpoints) {
-      v.sendHTML();
-    }
+    item.sendHTML();
   });
 }
