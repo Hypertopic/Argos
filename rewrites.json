@@ -18,8 +18,9 @@
     "to": "../../:object"
   }, {
     "from": "user/:user",
-    "to": "_view/user",
+    "to": "_list/user/user",
     "query": {
+      "include_docs": "true",
       "key": [":user"],
       "reduce": "false"
     }
