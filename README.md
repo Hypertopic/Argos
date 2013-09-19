@@ -26,6 +26,6 @@ Installation procedure
 
 * In any folder:
 
-        git clone git://github.com/Hypertopic/Argos.git
+        git clone git://github.com/Hypertopic/Argos.git -b stable
         couchapp init
         couchapp push Argos http://127.0.0.1:5984/argos
