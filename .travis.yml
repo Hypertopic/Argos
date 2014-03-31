@@ -1,0 +1,14 @@
+services: couchdb
+language: java
+install:
+- curl -X PUT localhost:5984/test
+- curl -O http://python-distribute.org/distribute_setup.py
+- sudo python distribute_setup.py
+- sudo easy_install couchapp
+- rm -f distribute-*.tar.gz
+- couchapp push . http://localhost:5984/test
+- wget https://github.com/Hypertopic/Porphyry/archive/master.zip
+- unzip master.zip
+- cd Porphyry-master
+- mkdir lib
+script: ant test-argos
