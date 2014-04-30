@@ -1,14 +1,7 @@
 function (head, req) {
   var hypertopic = require("lib/hypertopic");
 
-  provides("json", function() {
-    var result = {rows:[]};
-    while (r = getRow()) {
-      delete r.value._id;
-      result.rows.push({key: r.key, value: r.value});
-    }
-    send(toJSON(result));
-  });
+  provides("json", require("lib/util").sendView);
 
   provides("html", function() {
     var item = new hypertopic.Item();
