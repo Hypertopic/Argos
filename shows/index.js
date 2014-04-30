@@ -1,21 +1,16 @@
 function(doc, req) {
-  if('Accept' in req.headers && req.headers['Accept'].indexOf('json') > 0) {
+  provides('json', function() {
     return {
-      body : JSON.stringify({
+      body: JSON.stringify({
         service: 'Argos', 
-        revision: '3.12.07.09',
+        revision: '3.14.04.30',
         update_seq: req.info.update_seq
-      }), headers : { 
-        'Content-Type': 'application/json',
-      }
+      })
     }
-  } else {
+  });
+  provides('html', function() {
     return {
-        body : '<html><body><h3>Welcome to Argos!</h3></body></html>',
-        headers : { 
-          'Content-Type' : 'text/html',
-        }
+      body: '<html><body><h3>Welcome to Argos!</h3></body></html>',
     }
-  }
-  
+  });
 }
