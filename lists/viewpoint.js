@@ -8,6 +8,18 @@ function (head, req) {
     while (row = getRow()) {
       viewpoint.addRow(row.key, row.value);
     }
-    viewpoint.sendHTML();
+    if (req.query.download) {
+      viewpoint.sendFreemind();
+    } else {
+      viewpoint.sendHTML();
+    }
+  });
+
+  registerType("freemind", "application/x-freemind");
+  provides("freemind", function() {
+    while (row = getRow()) {
+      viewpoint.addRow(row.key, row.value);
+    }
+    viewpoint.sendFreemind();
   });
 }

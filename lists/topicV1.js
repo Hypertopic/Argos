@@ -1,4 +1,6 @@
 function(head, req) {
+  var util = require("lib/util");
+
   start({
       "headers": {
         "Content-Type": "text/xml"
@@ -11,10 +13,6 @@ function(head, req) {
       result += array[i];
     }
     return result;
-  }
-
-  function xmlencode(string) {
-    return string.replace(/\&/g,'&'+'amp;').replace(/</g,'&'+'lt;');
   }
 
   var name;
@@ -57,7 +55,7 @@ function(head, req) {
   for each (h in highlights) {
     send('<entity href="../../../entity/'+h.corpus+"/"+h.item+"/");
     send(format(h.coordinates)+'">');
-    send(xmlencode(h.text));
+    send(util.xmlencode(h.text));
     send('</entity>\n');
   }
   send('</topic>\n');

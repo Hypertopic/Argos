@@ -1,8 +1,5 @@
 function(o, req) {
-
-  function xmlencode(string) {
-    return string.replace(/\&/g,'&'+'amp;').replace(/</g,'&'+'lt;');
-  }
+  var util = require("lib/util");
 
   send('<entity>\n');
   for (var key in o) {
@@ -20,7 +17,7 @@ function(o, req) {
           break;
         case 'resource':
           send('<resource name="source" href="');
-          send(xmlencode(o.resource));
+          send(util.xmlencode(o.resource));
           send('"/>\n');
           if (o.resource.indexOf('picture')>=0) {
             send('<resource name="thumbnail" href="');
