@@ -12,7 +12,7 @@ function(o, req) {
           break;
         case 'item_name':
           send('<attribute name="name" value="');
-          send(o.item_name);
+          send(util.xmlencode(o.item_name));
           send('"/>\n');
           break;
         case 'resource':
@@ -39,7 +39,7 @@ function(o, req) {
           send('<attribute name="');
           send(key);
           send('" value="');
-          send(o[key]);
+          send(util.xmlencode(o[key]));
           send('"/>\n');
       }
     }
