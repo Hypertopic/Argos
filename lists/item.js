@@ -4,7 +4,7 @@ function (head, req) {
   provides("json", require("lib/util").sendView);
 
   provides("html", function() {
-    var item = new hypertopic.Item();
+    var item = new hypertopic.Item(req.query.corpus, req.query.item);
     while (r = getRow()) {
       var key = r.key;
       var value = r.value;
