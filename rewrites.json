@@ -1,5 +1,8 @@
 [
   {
+    "from": "included/*",
+    "to": "*"
+  }, {
     "from": "item/",
     "to": "_view/resource",
     "query": {

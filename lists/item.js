@@ -1,9 +1,11 @@
 function (head, req) {
   var hypertopic = require("lib/hypertopic");
+  var util = require("lib/util");
 
-  provides("json", require("lib/util").sendView);
+  provides("json", util.sendView);
 
   provides("html", function() {
+    util.sendCSS();
     var item = new hypertopic.Item(req.query.corpus, req.query.item);
     while (r = getRow()) {
       var key = r.key;
