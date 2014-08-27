@@ -123,5 +123,8 @@
     "query": {
        "key": [":corpus"]
     }
+  }, {
+    "from": ":object/:resource",
+    "to": "../../:object/:resource"
   }
 ]
