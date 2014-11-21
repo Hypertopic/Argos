@@ -6,6 +6,7 @@ function(o) {
       case "_rev":
       case "_attachments":
       case "_deleted_conflicts":
+      case "_conflicts":
       case "item_corpus":
       case "item_name":
       case "thumbnail":
