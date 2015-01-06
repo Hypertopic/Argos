@@ -1,10 +1,12 @@
 function (head, req) {
   var hypertopic = require("lib/hypertopic");
   var viewpoint = new hypertopic.Viewpoint();
+  var util = require("lib/util");
 
   provides("json", require("lib/util").sendView);
 
   provides("html", function() {
+    util.sendCSS();
     while (row = getRow()) {
       viewpoint.addRow(row.key, row.value);
     }
