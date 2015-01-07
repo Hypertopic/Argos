@@ -1,3 +1,31 @@
 .bound {
   font-weight: bold
 }
+
+.topic {
+	list-style-type: none;
+	position: relative;
+	padding-left: 5px;
+}
+
+/* ---- TOOGLER ---- */
+
+.toogler:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.toogler i {
+	position: absolute;
+	left: -20px;
+	top: -2.5px;
+	width: 25px;
+}
+
+.toogler i.arrow-down:before {
+	content:url("/argos/_design/argos/_rewrite/included/arrow-down.png");
+}
+
+.toogler i.arrow-right:before {
+	content:url("/argos/_design/argos/_rewrite/included/arrow-right.png");
+}
