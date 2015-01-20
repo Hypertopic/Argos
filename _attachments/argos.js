@@ -33,6 +33,7 @@ $(document).ready(function() {
   }
 
   function UI() {
+    var self = this;
     $.contextMenu({
       selector: '.show-options',
       trigger: 'left',
@@ -53,11 +54,136 @@ $(document).ready(function() {
         "add-sibling": {name: "Créer un frère", icon: "create_a_sibling"}
       }
     });
+
+    self.getSelectedTopics = function() {
+      return $('.topic').filter(function() {
+          return $(this).find('> input[type="checkbox"]').is(':checked');
+      }).toArray();
+    };
+
+    self.addChild = function(e) {
+      var selectedTopics = self.getSelectedTopics();
+      if(selectedTopics.length === 0) {
+        alert('No topic selected');
+        return;
+      } 
+
+      if(selectedTopics.length > 1){
+        alert('Too many topics selected');
+        return;
+      }
+
+      var $topic = $(selectedTopics[0]);
+      $.agorae.topic.addChildTo($topic);
+    };
+
+    self.addSibling = function(e) {
+      var selectedTopics = self.getSelectedTopics();
+      if(selectedTopics.length === 0) {
+        alert('No topic selected');
+        return;
+      } 
+
+      if(selectedTopics.length > 1){
+        alert('Too many topics selected');
+        return;
+      }
+
+      var $topic = $(selectedTopics[0]);
+      $.agorae.topic.addSiblingTo($topic);
+    };
+  }
+
+  function Topic() {
+    var self = this;
+    var template = '' + 
+      '<li class="topic{{bound}}" id="{{id}}">' + 
+        '<a>' +
+          '<i class="{{children_indicator}}toggle-visibility"></i>' +
+        '</a>' +
+        '<input type="checkbox">' +
+        '<span class="name">{{name}}</span>' +
+        '<ul></ul>';
+
+    /**
+     * Reverse the checkbox of a specific topic (check to uncheck, uncheck to check).
+     * @param  {Object} $topic Chosen topic to check/uncheck.
+     * @param  {Boolean} value Value to force (true|false).
+     * @return {Object} The selected topic.
+     */
+    self.checkTopic = function($topic, value) {
+      var $checkbox = $topic.find('> input[type="checkbox"]');
+      if(!$.agorae.config.isEditing){
+        $checkbox.prop('checked', value !== undefined ? value : !$checkbox.prop('checked'));
+      }
+
+      return $topic;
+    };
+
+    /**
+     * Add a topic (see template) as a child of another template. 
+     * TODO: save
+     * 
+     * @param {Object} $topic Parent of the added topic.
+     */
+    self.addChildTo = function($topic) {
+      if(!($topic instanceof jQuery)) {
+        throw new TypeError('$topic must be an instanceof a jQuery element');
+      }      
+
+      $.agorae.createTopic(document.URL, 'untitled', function(topic) {
+        var $child = $(template
+          .replace('{{name}}', topic.name)
+          .replace('{{id}}', topic.id)
+          .replace('{{children_indicator}}', 'bullet')
+          .replace('{{bound}}', '')).clone();
+
+        $.agorae.moveTopic(document.URL, topic.id, $topic.attr('id'), function() {
+          var $childrenList = $topic.find('> ul');
+          $childrenList.append($child);
+
+          self.checkTopic($topic, false);
+          $child.find('.name').trigger('dblclick');
+        });
+      });
+    };
+
+    /**
+     * Add a topic (see template) after another topic.
+     * TODO: save
+     * 
+     * @param {Object} $topic Brother of the added topic.
+     */
+    self.addSiblingTo = function ($topic) {
+      if(!($topic instanceof jQuery)) {
+        throw new TypeError('$topic must be an instanceof a jQuery element');
+      }
+
+      $.agorae.createTopic(document.URL, 'untitled', function(topic) {
+        // Clone the template to avoid referencing an already used reference.
+        var $sibling = $(template
+          .replace('{{name}}', topic.name)
+          .replace('{{id}}', topic.id)
+          .replace('{{children_indicator}}', 'bullet')
+          .replace('{{bound}}', '')).clone();
+        
+        var $parent = $topic.parent().parent();
+
+        $.agorae.moveTopic(document.URL, topic.id, $parent.attr('id'), function() {
+          $topic.after($sibling);
+
+          self.checkTopic($topic, false);
+          $sibling.find('.name').trigger('dblclick');
+        });
+          
+      });
+    };
   }
 
   $.agorae = $.agorae || {};
   $.extend($.agorae, {
     interact: new Interact(),
+    topic: new Topic(),
     ui: new UI()
   });
 });
