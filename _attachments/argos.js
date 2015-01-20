@@ -1,5 +1,37 @@
 $(document).ready(function() {
 
+  function Interact() {
+    $.agorae.config = {};
+    $.agorae.config.auth = window.location.origin + '/_session';
+    $.agorae.session = {};
+
+    if($.cookie('username') && $.cookie('password')) {
+      $.agorae.login($.cookie('username'), $.cookie('password'), function(res) {
+        if(res) {
+          alert('Wrong credentials, try again!');
+          $.cookie('username', prompt('Select your username'));
+          $.cookie('password', prompt('Select your password'));
+          location.reload();
+        }
+      }, function(res) {
+
+      });
+    } else {
+      $.cookie('username', prompt('Select your username'));
+      $.cookie('password', prompt('Select your password'));
+      $.agorae.login($.cookie('username'), $.cookie('password'), function(res) {
+        if(res) {
+          alert('Wrong credentials, try again!');
+          $.cookie('username', prompt('Select your username'));
+          $.cookie('password', prompt('Select your password'));
+          location.reload();
+        }
+      }, function(res) {
+
+      });
+    }
+  }
+
   function UI() {
     $.contextMenu({
       selector: '.show-options',
@@ -25,6 +57,7 @@ $(document).ready(function() {
 
   $.agorae = $.agorae || {};
   $.extend($.agorae, {
+    interact: new Interact(),
     ui: new UI()
   });
 });
