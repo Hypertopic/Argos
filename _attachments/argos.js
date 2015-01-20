@@ -53,11 +53,106 @@ $(document).ready(function() {
         "add-sibling": {name: "Créer un frère", icon: "create_a_sibling"}
       }
     });
+
+    var self = this;
+    self.createEditor = function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var $this = $(this);
+      var $topic = $this.parent();
+      $.agorae.config.editingName = $this.html();
+
+      if(!$.agorae.config.isEditing) {
+        $.agorae.config.isEditing = true;
+        $.agorae.config.renamingIsCancelled = false;
+    
+        $this.html('<input class="name-editor" type="text" value="' + $this.html() + '"/>');
+        $('.name-editor').focus();
+      }
+    };
+
+    /* ---- KEYBOARD BINDINGS ---- */
+
+    Mousetrap.stopCallback = function () {
+         return false;
+    };
+
+    Mousetrap.bind('enter', function(e) {
+      if($.agorae.config.isEditing) {
+        $(':focus').trigger('blur');
+      }
+    });
+
+    Mousetrap.bind('escape', function(e) {
+      if($.agorae.config.isEditing) {
+        $.agorae.config.renamingIsCancelled = true;
+        $(':focus').trigger('blur');
+      }
+    });
+
+    Mousetrap.bind('shift+enter', function(e) {
+      if($.agorae.config.isEditing) {
+        $(':focus').trigger('blur');
+      }
+    });
+
+    Mousetrap.bind('tab', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if($.agorae.config.isEditing) {
+        $(':focus').trigger('blur');
+      }
+    });
+
+    Mousetrap.bind('shift+tab', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if($.agorae.config.isEditing) {
+        $(':focus').trigger('blur');
+      }
+    });
+
+    // ---- MOUSE BINDINGS ---- //
+    
+    // Create topic name ditor
+    $(document).on('dblclick', '.topic .name', self.createEditor);
+
+    // Rename a topic
+    $(document).on('blur', '.name-editor', function() {
+      $.agorae.topic.rename($(this).closest('.topic'), $(this).val());
+    });
+
+  }
+
+  function Topic() {
+    var self = this;
+
+    /**
+     * Rename a topic. In case the editing is cancelled, do not update the topic.
+     * @param  {Object} $topic  Topic to rename
+     * @param  {String} newName Name to set
+     * @return {Object}         Updated topic.
+     */
+    self.rename = function($topic, name) {
+      var $nameField = $topic.find('> .name');
+      $.agorae.config.isEditing = false;  
+      if($.agorae.config.renamingIsCancelled) {
+        $nameField.html($.agorae.config.editingName);
+      } else {
+        $.agorae.renameTopic(document.URL, $topic.attr('id'), name, function() {
+          $nameField.html(name);
+        });
+      }
+
+      return $topic;  
+    };
+
   }
 
   $.agorae = $.agorae || {};
   $.extend($.agorae, {
     interact: new Interact(),
+    topic: new Topic(),
     ui: new UI()
   });
 });
