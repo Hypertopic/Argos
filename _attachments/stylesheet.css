@@ -54,6 +54,28 @@ i {
 	user-select: none;
 }
 
+i.arrow-down:before {
+	content:"▼";
+	font-size: 12px;
+}
+
+i.arrow-right:before {
+	content:"▶";
+	font-size: 12px;
+}
+
+i.arrow-down:hover {
+	cursor: pointer;
+}
+
+i.arrow-right:hover {
+	cursor: pointer;
+}
+
+i.bullet:before {
+	content: "•";
+}
+
 /* ---- HEADER ---- */
 
 header {
