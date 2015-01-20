@@ -33,6 +33,8 @@ $(document).ready(function() {
   }
 
   function UI() {
+    var self = this;
+    
     $.contextMenu({
       selector: '.show-options',
       trigger: 'left',
