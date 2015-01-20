@@ -53,11 +53,57 @@ $(document).ready(function() {
         "add-sibling": {name: "Créer un frère", icon: "create_a_sibling"}
       }
     });
+
+    self.deleteSelectedTopics = function() {
+      $('.topic').find(':checked').each(function() {
+        $.agorae.topic.delete($(this).parent());
+      });
+    };
+
+    /* ---- KEYBOARD BINDINGS ---- */
+
+    Mousetrap.stopCallback = function () {
+         return false;
+    };
+
+    Mousetrap.bind('backspace', function(e) {
+      if(!$.agorae.config.isEditing) {
+        e.preventDefault();
+        e.stopPropagation();
+        self.deleteSelectedTopics();
+      }
+    });
+  }
+
+  function Topic() {
+    var self = this;
+
+    /**
+     * Delete a topic both visually and in database.
+     * @param  {Object} $topic Topic to delete
+     * @return {Object} Deleted topic.
+     */
+    self.delete = function($topic) {
+      console.log($.agorae.deleteTopic, $topic.attr);
+      $.agorae.deleteTopic(document.URL, $topic.attr('id'), function() {
+        var $parent = $topic.parent().parent();
+        if($parent.is('.topic') && $parent.find('> ul').children().length === 1) {
+          $parent.find('> a > i')
+            .removeClass('arrow-down')
+            .removeClass('arrow-right')
+            .addClass('bullet');
+        }
+        $topic.remove();
+      });
+
+      return $topic;
+    };
   }
 
   $.agorae = $.agorae || {};
   $.extend($.agorae, {
     interact: new Interact(),
+    topic: new Topic(),
     ui: new UI()
   });
 });
