@@ -2,8 +2,6 @@ services: couchdb
 language: java
 install:
 - curl -X PUT localhost:5984/test
-- curl -O https://bootstrap.pypa.io/get-pip.py
-- python get-pip.py
 - sudo pip install couchapp
 - couchapp push . http://localhost:5984/test
 - wget https://github.com/Hypertopic/Porphyry/archive/master.zip
