@@ -1,3 +1,100 @@
+body {
+	padding-top: 25px;
+}
+
 .bound {
   font-weight: bold
+}
+
+/* ---- TOPIC ---- */
+
+.topic {
+	position: relative;
+}
+
+.topic .name {
+	position: absolute;
+	top:0px;
+	margin-left: 10px;
+}
+
+.topic .name:hover {
+	cursor: default;
+}
+
+.topic .name input {
+	cursor: text;
+}
+
+.viewpoint ul {
+	list-style-type: none;	
+}
+
+.topic ul {
+	list-style-type: none;
+	margin-top: 10px;
+}
+
+/* ---- TOGGLER ---- */
+
+i {
+	font-style: normal;
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	margin-right: 5px;
+	margin-left: 5px;
+
+	/* Disable icon selection (blue halo thingy) */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* ---- HEADER ---- */
+
+header {
+	border: 1px solid #cdcdcd;
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 30px;
+}
+
+header .menu {
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+header .menu a {
+	padding-right: 10px;
+	display: inline-block;
+}
+
+header .menu .show-options {
+	background-image: url("../included/options.png");
+	background-size: 16px 16px;
+	background-repeat: no-repeat; 
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	right: 0px;
+	top: 6px;
+	color: white;
+	border: none;
+	background-color: white;
+}
+
+header .menu .show-options:hover {
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+header .menu .show-options:focus {
+	outline:0;
 }
