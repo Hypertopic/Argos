@@ -50,10 +50,10 @@ function(head, req) {
     send('</relatedTopic>\n');
   }
   for each (i in items) {
-    send('<entity href="../../../entity/'+i.corpus+"/"+i.id+'"/>\n');
+    send('<entity href="../../../entity/'+util.urlencode(i.corpus)+"/"+i.id+'"/>\n');
   }
   for each (h in highlights) {
-    send('<entity href="../../../entity/'+h.corpus+"/"+h.item+"/");
+    send('<entity href="../../../entity/'+util.urlencode(h.corpus)+"/"+h.item+"/");
     send(format(h.coordinates)+'">');
     send(util.xmlencode(h.text));
     send('</entity>\n');
