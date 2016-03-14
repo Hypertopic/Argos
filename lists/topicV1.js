@@ -38,7 +38,7 @@ function(head, req) {
       highlights.push(r.value.highlight);
     }
   }
-  send('<topic name="'+name+'">\n');
+  send('<topic name="'+util.xmlencode(name)+'">\n');
   for each (b in broader) {
     send('<relatedTopic href="'+b.id+'" relationType="includedIn">');
     send(b.name);
