@@ -9,6 +9,12 @@
       "key": [":resource"]
     }
   }, {
+    "from": "empty",
+    "to": "_list/empty/empty",
+    "query": {
+      "include_docs": "true"
+    }
+  }, {
     "from": "", 
     "to": "../../",
     "method": "POST"
