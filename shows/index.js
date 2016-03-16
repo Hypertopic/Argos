@@ -3,7 +3,7 @@ function(doc, req) {
     return {
       body: JSON.stringify({
         service: 'Argos', 
-        revision: '3.15.02.04',
+        revision: '3.16.03.16',
         update_seq: req.info.update_seq
       })
     }
