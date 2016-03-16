@@ -5,7 +5,7 @@ function (head, req) {
   provides("json", util.sendView);
 
   provides("html", function() {
-    util.sendCSS();
+    util.sendCSS(2);
     var item = new hypertopic.Item(req.query.corpus, req.query.item);
     while (r = getRow()) {
       var key = r.key;

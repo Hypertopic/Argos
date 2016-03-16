@@ -1,3 +1,11 @@
 .bound {
   font-weight: bold
 }
+.users::before {
+  content: "Users";
+  font-variant: small-caps;
+}
+.topics::before {
+  content: "Topics";
+  font-variant: small-caps;
+}
