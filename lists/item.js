@@ -6,6 +6,7 @@ function (head, req) {
 
   provides("html", function() {
     util.sendCSS(2);
+    util.sendJS(2);
     var item = new hypertopic.Item(req.query.corpus, req.query.item);
     while (r = getRow()) {
       var key = r.key;

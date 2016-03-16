@@ -7,6 +7,7 @@ function (head, req) {
 
   provides("html", function() {
     util.sendCSS(1);
+    util.sendJS(1);
     while (row = getRow()) {
       viewpoint.addRow(row.key, row.value);
     }

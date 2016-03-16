@@ -6,6 +6,7 @@ function (head, req) {
 
   provides("html", function() {
     util.sendCSS(1);
+    util.sendJS(1);
     var user = new hypertopic.User(req.query.user);
     while (r = getRow()) {
       if (r.value.viewpoint) {
