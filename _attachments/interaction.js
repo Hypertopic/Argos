@@ -7,7 +7,7 @@ $(function() {
   );
   $(".new_user").on('keypress', function(key) {
     if (key.which==13) {
-      var user = $(this).val();
+      var user = $(this).val().trim();
       var textbox = $(this);
       hypertopicMap.register({
         id: $(this).closest('.viewpoint').prop('id'),
