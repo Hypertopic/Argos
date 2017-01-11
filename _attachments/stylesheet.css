@@ -1,6 +1,9 @@
 .bound {
   font-weight: bold
 }
+.topic :not(.bound) {
+  font-weight: normal;
+}
 .users::before {
   content: "Users";
   font-variant: small-caps;
