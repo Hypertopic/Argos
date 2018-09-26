@@ -91,46 +91,6 @@
        "reduce": "false"
     }
   }, {
-    "from": "v1/actor/",
-    "to": "_list/actorsV1/user",
-    "query": {
-       "group": "true"
-    }
-  }, {
-    "from": "v1/actor/:user",
-    "to": "_list/actorV1/user",
-    "query": {
-       "key": [":user"],
-       "reduce": "false"
-    }
-  }, {
-    "from": "v1/viewpoint/:viewpoint/",
-    "to": "_list/viewpointV1/viewpoint",
-    "query": {
-       "key": [":viewpoint"]
-    }
-  }, {
-    "from": "v1/viewpoint/:viewpoint/topic/:topic",
-    "to": "_list/topicV1/viewpoint",
-    "query": {
-       "key": [":viewpoint",":topic"]
-    }
-  }, {
-    "from": "v1/entity/:corpus/:item/:coordinates",
-    "to": "_list/fragmentV1/fragmentV1",
-    "query": {
-       "key": [":item", ":coordinates"]
-    }
-  }, {
-    "from": "v1/entity/:corpus/:item",
-    "to": "_show/itemV1/:item"
-  }, {
-    "from": "v1/entity/:corpus/",
-    "to": "_list/corpusV1/corpusV1",
-    "query": {
-       "key": [":corpus"]
-    }
-  }, {
     "from": ":object/:resource",
     "to": "../../:object/:resource"
   }
