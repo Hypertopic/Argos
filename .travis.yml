@@ -2,6 +2,7 @@ services: couchdb
 language: java
 install:
 - curl -X PUT localhost:5984/test
+- curl -X PUT -d '"false"' localhost:5984/_config/httpd/secure_rewrites
 - sudo pip install couchapp
 - couchapp push . http://localhost:5984/test
 - wget https://github.com/Hypertopic/Porphyry/archive/v6.zip

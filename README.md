@@ -17,12 +17,14 @@ Installation requirements
 
 * Git client
 * [CouchDB](http://couchdb.apache.org/)
-* [CouchApp](https://github.com/jchris/couchapp) 
+* [CouchApp](https://github.com/jchris/couchapp)
 
 Installation procedure
 ----------------------
 
 * Create a database named ``argos`` at <http://127.0.0.1:5984/_utils>.
+
+* In CouchDB settings, set `secure_rewrites` to `false` (needed to use CouchDB sessions as default Argos sessions).
 
 * In any folder:
 
