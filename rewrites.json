@@ -23,6 +23,9 @@
     "to": "_show/index",
     "method": "GET"
   }, {
+    "from": "_session",
+    "to": "../../../_session"
+  }, {
     "from": ":object",
     "to": "../../:object"
   }, {
