@@ -37,7 +37,7 @@ function(o) {
       emit([o.item_corpus, o._id], {topic:{
         viewpoint: viewpoint_id,
         id: t
-      }, _id: viewpoint_id});
+      }});
     }
     //item highlights
     for (var h in o.highlights) {

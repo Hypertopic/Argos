@@ -27,9 +27,8 @@
     "to": "../../:object"
   }, {
     "from": "user/:user",
-    "to": "_list/user/user",
+    "to": "_view/user",
     "query": {
-      "include_docs": "true",
       "key": [":user"],
       "reduce": "false"
     }
@@ -42,9 +41,8 @@
     }
   }, {
     "from": "item/:corpus/:item",
-    "to": "_list/item/corpus",
+    "to": "_view/corpus",
     "query": {
-       "include_docs": "true",
        "startkey": [":corpus", ":item"],
        "endkey": [":corpus", ":item", {}]
     }
@@ -53,7 +51,7 @@
     "to": "../../:item/:resource"
   }, {
     "from": "viewpoint/:viewpoint",
-    "to": "_list/viewpoint/viewpoint",
+    "to": "_view/viewpoint",
     "query": {
        "startkey": [":viewpoint"],
        "endkey": [":viewpoint", {}]
