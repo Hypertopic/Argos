@@ -20,7 +20,10 @@
     "method": "POST"
   }, {
     "from": "",
-    "to": "_show/index",
+    "to": "_list/index/stats",
+    "query": {
+      "group": "true"
+    },
     "method": "GET"
   }, {
     "from": "_session",
