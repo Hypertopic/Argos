@@ -1,8 +1,5 @@
 [
   {
-    "from": "included/*",
-    "to": "*"
-  }, {
     "from": "item/",
     "to": "_view/resource",
     "query": {
@@ -15,7 +12,7 @@
       "include_docs": "true"
     }
   }, {
-    "from": "", 
+    "from": "",
     "to": "../../",
     "method": "POST"
   }, {
