@@ -1,12 +1,12 @@
 function(head, req) {
   provides('json', function() {
-    return {
-      body: JSON.stringify({
+    send(
+      JSON.stringify({
         service: 'Argos',
         revision: '3.16.03.16',
         update_seq: req.info.update_seq
       })
-    }
+    );
   });
   provides('html', function() {
     send('<html><body><h1>Argos</h1><table>');
