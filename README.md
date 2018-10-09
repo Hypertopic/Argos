@@ -29,8 +29,6 @@ Installation procedure
 * In any folder:
 
         git clone https://github.com/Hypertopic/Argos.git
-        cd Argos
-        couchapp init
-        couchapp push http://127.0.0.1:5984/argos
+        couchapp push Argos/app http://127.0.0.1:5984/argos
 
 * Your Argos API endpoint is now available at <http://127.0.0.1:5984/argos/_design/argos/_rewrite/> (this URI can be further simplified by the use of CouchDB virtual servers feature or the use of a reverse proxy like [AAAforREST](https://github.com/Hypertopic/AAAforREST)). Check the [Hypertopic protocol specification](https://github.com/Hypertopic/Protocol/blob/master/README.md) for usable HTTP resources and methods.
