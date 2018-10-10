@@ -1,0 +1,25 @@
+{
+   "_id": "8a1750b17b11944108efaac593f4448e4e9f966b",
+   "item_name": "SNZ 006",
+   "item_corpus": "Vitraux - Bénel",
+   "topics": {
+       "2c7175571d9d354cb57d328503004d85": {
+           "viewpoint": "56e092d8a6179a788c74b618b29801c0"
+       },
+       "f1520229979b11428f94a004f880c022": {
+           "viewpoint": "56e092d8a6179a788c74b618b29801c0"
+       },
+       "b7e13ee879fecf41b8f462ff22cd3917": {
+           "viewpoint": "56e092d8a6179a788c74b618b29801c0"
+       },
+       "e01a7cb572461a43a22aa8f771235cb6": {
+           "viewpoint": "a76306e4f17ed4f79e7e481eb9a1bd06"
+       },
+       "44744143fea88349a681530d5f16ad24": {
+           "viewpoint": "a76306e4f17ed4f79e7e481eb9a1bd06"
+       }
+   },
+   "spatial": "Église Saint-Nizier, Troyes",
+   "creator": "Aurélien Bénel",
+   "resource": "http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b"
+}

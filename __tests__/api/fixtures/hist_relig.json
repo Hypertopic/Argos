@@ -1,0 +1,55 @@
+{
+   "_id": "56e092d8a6179a788c74b618b29801c0",
+   "viewpoint_name": "Histoire des religions",
+   "users": [
+       "vitraux"
+   ],
+   "topics": {
+       "437d2f65c8397f47825ab97ff5281482":{
+           "broader":[
+               "c556d31576c0bc40953ca5e04ab3fc72"
+           ],
+           "name":"AT"
+       },
+       "c556d31576c0bc40953ca5e04ab3fc72": {
+           "broader": [
+           ],
+           "name": "Personnages"
+       },
+       "76d8912cd913cf48bb394fba1f72db39": {
+           "broader": [
+           ],
+           "name": "Récits"
+       },
+       "85bfcfea9bacf04ea1c5494581d1768f": {
+           "broader": [
+               "76d8912cd913cf48bb394fba1f72db39"
+           ],
+           "name": "Torah"
+       },
+       "118beb2aa77e4c4dac936fef9133d0de": {
+           "broader": [
+               "85bfcfea9bacf04ea1c5494581d1768f"
+           ],
+           "name": "Genèse"
+       },
+       "f1520229979b11428f94a004f880c022": {
+           "broader": [
+               "437d2f65c8397f47825ab97ff5281482"
+           ],
+           "name": "Abram/Abraham"
+       },
+       "2c7175571d9d354cb57d328503004d85": {
+           "broader": [
+               "118beb2aa77e4c4dac936fef9133d0de"
+           ],
+           "name": "Sacrifice d'Abraham"
+       },
+       "b7e13ee879fecf41b8f462ff22cd3917": {
+           "broader": [
+               "437d2f65c8397f47825ab97ff5281482"
+           ],
+           "name": "Isaac"
+       }
+   }
+}

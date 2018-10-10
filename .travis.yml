@@ -1,12 +1,25 @@
+sudo: false
+
 services: couchdb
-language: java
+
+language: node_js
+
+node_js: 10
+
+cache:
+  directories:
+    - "node_modules"
+
+addons:
+  hosts: argos.local
+
 install:
-- curl -X PUT localhost:5984/test
+- curl -X PUT localhost:5984/argos
 - curl -X PUT -d '"false"' localhost:5984/_config/httpd/secure_rewrites
-- sudo pip install couchapp
-- couchapp push app http://localhost:5984/test
-- wget https://github.com/Hypertopic/Porphyry/archive/v6.zip
-- unzip v6.zip
-- cd Porphyry-6
-- mkdir lib
-script: ant test-argos
+- curl -X PUT -d '"/argos/_design/argos/_rewrite"' localhost:5984/_config/vhosts/argos.local
+- pip install --user couchapp
+- couchapp pushdocs __tests__/api/fixtures  http://localhost:5984/argos
+- couchapp push app http://localhost:5984/argos
+- npm install
+
+script: npm test

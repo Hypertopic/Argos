@@ -1,0 +1,30 @@
+{
+  "name": "argos",
+  "version": "4.0.0",
+  "description": "Contradictory/complementary categorisations management",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hypertopic/Argos.git"
+  },
+  "keywords": [
+    "knowledge-management",
+    "qualitative-analysis"
+  ],
+  "author": {
+    "name": "Aurélien Bénel",
+    "url": "https://github.com/benel"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Hypertopic/Argos/issues"
+  },
+  "homepage": "https://github.com/Hypertopic/Argos#readme",
+  "devDependencies": {
+    "frisby": "^2.1.0",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0"
+  }
+}

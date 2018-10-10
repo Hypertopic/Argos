@@ -1,0 +1,67 @@
+{
+   "_id": "a76306e4f17ed4f79e7e481eb9a1bd06",
+   "viewpoint_name": "Histoire de l'art",
+   "users": [
+       "aurelien.benel",
+       "vitraux"
+   ],
+   "topics": {
+       "731a7cea93dcc74abfd0a51f8201f78d": {
+           "broader": [
+           ],
+           "name": "Datation"
+       },
+       "bf4bb69b78e65448ac34b405fb087219": {
+           "broader": [
+               "731a7cea93dcc74abfd0a51f8201f78d"
+           ],
+           "name": "XVIe s."
+       },
+       "addd464d06159c4eb0b9666cffb2042c": {
+           "broader": [
+               "731a7cea93dcc74abfd0a51f8201f78d"
+           ],
+           "name": "XIXe s."
+       },
+       "9699bc2f8010944aa0574deabe8edb6d": {
+           "broader": [
+               "bf4bb69b78e65448ac34b405fb087219"
+           ],
+           "name": "1er quart XVIe"
+       },
+       "e01a7cb572461a43a22aa8f771235cb6": {
+           "broader": [
+               "9699bc2f8010944aa0574deabe8edb6d"
+           ],
+           "name": "Vers 1520"
+       },
+       "44744143fea88349a681530d5f16ad24": {
+           "broader": [
+               "6003c1197c4a1542a28e90d57b8dc5a9"
+           ],
+           "name": "Mouvement contrarié"
+       },
+       "4dbf2acc119ff3458a53ae9de59a44a7": {
+           "broader": [
+           ],
+           "name": "Artiste"
+       },
+      "6003c1197c4a1542a28e90d57b8dc5a9": {
+           "broader": [
+           ],
+           "name": "Technique narrative"
+       },
+       "5a4b28b61366bf4b9fa03602ad391cbf": {
+           "broader": [
+               "6003c1197c4a1542a28e90d57b8dc5a9"
+           ],
+           "name": "Phylactère"
+       },
+       "77bf3cc3e2e81e40a4688815a34494bb": {
+           "broader": [
+               "4dbf2acc119ff3458a53ae9de59a44a7"
+           ],
+           "name": "Vincent-Larcher"
+       }
+   }
+}
