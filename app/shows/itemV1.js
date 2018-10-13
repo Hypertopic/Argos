@@ -7,6 +7,7 @@ function(o, req) {
       if (key[0]!='_') {
         switch (key) {
           case 'item_corpus':
+          case 'couchapp':
             break;
           case 'highlights':
             // Argos v1 didn't implement item relations to fragments
