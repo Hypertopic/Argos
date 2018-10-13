@@ -105,13 +105,13 @@
     }
   }, {
     "from": "v1/viewpoint/:viewpoint/",
-    "to": "_list/viewpointV1/viewpoint",
+    "to": "_list/viewpointV1/viewpointV1",
     "query": {
        "key": [":viewpoint"]
     }
   }, {
     "from": "v1/viewpoint/:viewpoint/topic/:topic",
-    "to": "_list/topicV1/viewpoint",
+    "to": "_list/topicV1/viewpointV1",
     "query": {
        "key": [":viewpoint",":topic"]
     }

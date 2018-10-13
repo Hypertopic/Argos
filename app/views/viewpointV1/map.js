@@ -20,5 +20,33 @@ function(o) {
         emit([o._id, b], {narrower: {id:t, name:topics[t].name}});
       }
     }
+  } else if (o.item_corpus) {
+    //topic items
+    for (var t in o.topics) {
+      emit([
+        o.topics[t].viewpoint, 
+        t
+      ], {item:{
+        corpus:o.item_corpus, 
+        id:o._id, 
+        thumbnail:o.thumbnail,
+        name:o.item_name
+      }});
+    }
+    //topic highlights
+    for (var h in o.highlights) {
+      var highlight = o.highlights[h];
+      emit([
+        highlight.viewpoint,
+        highlight.topic
+      ], {highlight:{
+        id: h,
+        corpus: o.item_corpus,
+        item: o._id,
+        coordinates: highlight.coordinates,
+        thumbnail: highlight.thumbnail,
+        text: highlight.text
+      }});
+    }
   }
 }
