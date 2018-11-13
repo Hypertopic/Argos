@@ -17,7 +17,11 @@
     "name": "Aurélien Bénel",
     "url": "https://github.com/benel"
   },
-  "license": "GPL-3.0",
+  "contributors": [{
+      "name": "Chao Zhou",
+      "url": "https://github.com/chao"
+  }],
+  "license": "AGPL-3.0-only",
   "bugs": {
     "url": "https://github.com/Hypertopic/Argos/issues"
   },
