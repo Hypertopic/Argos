@@ -3,7 +3,7 @@ function(head, req) {
     send(
       JSON.stringify({
         service: 'Argos',
-        revision: '3.16.03.16',
+        revision: '4.0.0',
         update_seq: req.info.update_seq
       })
     );
