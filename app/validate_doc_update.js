@@ -1,4 +1,9 @@
 function (newDoc, oldDoc, userCtx, secObj) {
+
+  if (userCtx.roles.indexOf('_admin') !== -1) {
+    return true; // user is a server admin (or in "anonymous party" mode)
+  }
+
   if (!userCtx.name) {
     throw({unauthorized: 'Please log in first.'});
   }
