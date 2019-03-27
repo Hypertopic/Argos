@@ -1,11 +1,21 @@
 function (newDoc, oldDoc, userCtx, secObj) {
 
-  if (userCtx.roles.indexOf('_admin') !== -1) {
+  var includes = function(list, element) {
+    return list.indexOf(element) !== -1;
+  }
+
+  if (includes(userCtx.roles, '_admin')) {
     return true; // user is a server admin (or in "anonymous party" mode)
   }
 
   if (!userCtx.name) {
     throw({unauthorized: 'Please log in first.'});
+  }
+
+  if (oldDoc && oldDoc.contributors && !includes(oldDoc.contributors, userCtx.name)) {
+    throw({
+      unauthorized: userCtx.name + ' is not authorized to edit this document!'
+    });
   }
 
   //Validation for viewpoint, topics in viewpoint should be a DAG
