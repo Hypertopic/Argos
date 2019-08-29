@@ -3,10 +3,11 @@
   "version": "4.0.0",
   "description": "Contradictory/complementary categorisations management",
   "scripts": {
-    "install:db": "docker pull couchdb && docker pull benel/couchapp",
-    "start:db": "docker run -d -p 5984:5984 --name argos couchdb",
-    "configure:db": "curl -X PUT -d '\"false\"' localhost:5984/_node/_local/_config/httpd/secure_rewrites && curl -X PUT -d '\"/argos/_design/argos/_rewrite\"' localhost:5984/_node/_local/_config/vhosts/argos.local && docker run --rm -v \"$(pwd)\"/app:/app --link argos:couchdb benel/couchapp push . http://couchdb:5984/argos",
-    "populate:db": "docker run --rm -v \"$(pwd)\"/__tests__/api/fixtures:/app --link argos:couchdb benel/couchapp pushdocs . http://couchdb:5984/argos",
+    "install:db": "docker pull couchdb && docker pull benel/couchapp && docker pull nginx",
+    "start:db": "docker-compose up -d",
+    "configure:db": "curl -X PUT -d '\"false\"' localhost:5984/_node/_local/_config/httpd/secure_rewrites && docker run --rm -v \"$(pwd)\"/app:/app --network argos_default benel/couchapp push . http://argos_couchdb_1:5984/argos",
+    "populate:db": "docker run --rm -v \"$(pwd)\"/__tests__/api/fixtures:/app --network argos_default benel/couchapp pushdocs . http://argos_couchdb_1:5984/argos",
+    "stop:db": "docker-compose down",
     "test": "jest"
   },
   "repository": {

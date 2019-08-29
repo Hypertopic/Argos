@@ -7,7 +7,7 @@ let xml = function(response) {
 
 
 it('Get actors to get a list of portfolios', function() {
-  return test.get('http://argos.local:5984/v1/actor/')
+  return test.get('http://localhost/v1/actor/')
     .then(function(response) {
       let actors = xml(response).actors.actor;
       expect(actors).toEqual(
@@ -20,7 +20,7 @@ it('Get actors to get a list of portfolios', function() {
 });
 
 it('Get a portfolio to get an agregate of related corpora and viewpoints', function () {
-  return test.get('http://argos.local:5984/v1/actor/vitraux')
+  return test.get('http://localhost/v1/actor/vitraux')
     .then(function(response) {
       let viewpoints = xml(response).actor.viewpoint;
       expect(viewpoints).toEqual(
@@ -33,7 +33,7 @@ it('Get a portfolio to get an agregate of related corpora and viewpoints', funct
 });
 
 it('Get a corpus to get contained items and highlights with their attributes and topics', function () {
-  return test.get('http://argos.local:5984/v1/entity/Vitraux - Bénel')
+  return test.get('http://localhost/v1/entity/Vitraux - Bénel')
     .then(function(response) {
       let viewpoints = xml(response).entity.relatedEntity;
       expect(viewpoints).toEqual(
@@ -46,7 +46,7 @@ it('Get a corpus to get contained items and highlights with their attributes and
 });
 
 it('Get an item to get its attributes and topics', function () {
-  return test.get('http://argos.local:5984/v1/entity/Vitraux - Bénel/8a1750b17b11944108efaac593f4448e4e9f966b')
+  return test.get('http://localhost/v1/entity/Vitraux - Bénel/8a1750b17b11944108efaac593f4448e4e9f966b')
     .then(function(response) {
       let item = xml(response).entity;
       expect(item.attribute).toEqual(
@@ -72,7 +72,7 @@ it('Get an item to get its attributes and topics', function () {
 });
  
 it('Get a viewpoint to get upper topics', function () {
-  return test.get('http://argos.local:5984/v1/viewpoint/56e092d8a6179a788c74b618b29801c0')
+  return test.get('http://localhost/v1/viewpoint/56e092d8a6179a788c74b618b29801c0')
     .then(function(response) {
       let topics = xml(response).viewpoint.topic;
       expect(topics).toEqual(
@@ -86,7 +86,7 @@ it('Get a viewpoint to get upper topics', function () {
 
 
 it('Get a topic to get its children and parents', function () {
-  return test.get('http://argos.local:5984/v1/viewpoint/56e092d8a6179a788c74b618b29801c0/topic/437d2f65c8397f47825ab97ff5281482')
+  return test.get('http://localhost/v1/viewpoint/56e092d8a6179a788c74b618b29801c0/topic/437d2f65c8397f47825ab97ff5281482')
     .then(function(response) {
       let topics = xml(response).topic.relatedTopic;
       expect(topics).toEqual(

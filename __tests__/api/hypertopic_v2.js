@@ -9,7 +9,7 @@ test.globalSetup({
 });
 
 it('Get a portfolio to get an agregate of related corpora and viewpoints', function () {
-  return test.get('http://argos.local:5984/user/vitraux')
+  return test.get('http://localhost/user/vitraux')
     .expect('header', 'Content-Type', 'application/json')
     .expect('json', 'rows', [
       {id:'Vitraux - Bénel', key:['vitraux'], value:{corpus:{id:'Vitraux - Bénel', name:'Vitraux - Bénel'}}},
@@ -19,7 +19,7 @@ it('Get a portfolio to get an agregate of related corpora and viewpoints', funct
 });
 
 it('Get a corpus to get contained items and highlights with their attributes and topics', function () {
-  return test.get('http://argos.local:5984/corpus/Vitraux - Bénel')
+  return test.get('http://localhost/corpus/Vitraux - Bénel')
     .expect('json', 'rows', [
       {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"creator":"Aurélien Bénel"}},
       {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"name":"SNZ 006","resource":"http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b"}},
@@ -29,7 +29,7 @@ it('Get a corpus to get contained items and highlights with their attributes and
 });
 
 it('Get an item to get its highlights, attributes and topics', function () {
-  return test.get('http://argos.local:5984/item/Vitraux - Bénel/8a1750b17b11944108efaac593f4448e4e9f966b')
+  return test.get('http://localhost/item/Vitraux - Bénel/8a1750b17b11944108efaac593f4448e4e9f966b')
     .expect('json', 'rows', [
       {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"creator":"Aurélien Bénel"}},
       {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"name":"SNZ 006","resource":"http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b"}},
@@ -38,14 +38,14 @@ it('Get an item to get its highlights, attributes and topics', function () {
 });
 
 it('Get a resource to find the corresponding item (and corpus)', function() {
-  return test.get('http://argos.local:5984/item/?resource=http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b')
+  return test.get('http://localhost/item/?resource=http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b')
     .expect('json', 'rows', [
       {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"item":{"corpus":"Vitraux - Bénel","id":"8a1750b17b11944108efaac593f4448e4e9f966b"}}}
     ]);
 });
 
 it('Get a viewpoint to get contained topics with their relations to other topics', function () {
-  return test.get('http://argos.local:5984/viewpoint/56e092d8a6179a788c74b618b29801c0')
+  return test.get('http://localhost/viewpoint/56e092d8a6179a788c74b618b29801c0')
     .expect('json', 'rows', [
       {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0"],"value":{"upper":{"id":"76d8912cd913cf48bb394fba1f72db39","name":"Récits"}}},
       {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0"],"value":{"upper":{"id":"c556d31576c0bc40953ca5e04ab3fc72","name":"Personnages"}}},
@@ -57,7 +57,7 @@ it('Get a viewpoint to get contained topics with their relations to other topics
 });
 
 it('Get a topic to get its relations to other topics', function () {
-  return test.get('http://argos.local:5984/topic/56e092d8a6179a788c74b618b29801c0/c556d31576c0bc40953ca5e04ab3fc72')
+  return test.get('http://localhost/topic/56e092d8a6179a788c74b618b29801c0/c556d31576c0bc40953ca5e04ab3fc72')
     .expect('json', 'rows', [
       {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0","c556d31576c0bc40953ca5e04ab3fc72"],"value":{"name":"Personnages"}},
       {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0","c556d31576c0bc40953ca5e04ab3fc72"],"value":{"narrower":{"id":"437d2f65c8397f47825ab97ff5281482","name":"AT"}}},
@@ -65,7 +65,7 @@ it('Get a topic to get its relations to other topics', function () {
 });
 
 it('Get corpus attributes to get used attribute keys', function () {
-  return test.get('http://argos.local:5984/attribute/Vitraux - Bénel/')
+  return test.get('http://localhost/attribute/Vitraux - Bénel/')
     .expect('json', 'rows', [
       {"key":["Vitraux - Bénel","creator"],"value":2},
       {"key":["Vitraux - Bénel","spatial"],"value":2}
@@ -73,7 +73,7 @@ it('Get corpus attributes to get used attribute keys', function () {
 });
 
 it('Get an attribute to get used corresponding values', function () {
-  return test.get('http://argos.local:5984/attribute/Vitraux - Bénel/spatial/')
+  return test.get('http://localhost/attribute/Vitraux - Bénel/spatial/')
     .expect('json', 'rows', [
       {"key":["Vitraux - Bénel","spatial","Église Saint-Nizier, Troyes"],"value":1},
       {"key":["Vitraux - Bénel","spatial","Église Sainte-Madeleine, Troyes"],"value":1}
@@ -81,7 +81,7 @@ it('Get an attribute to get used corresponding values', function () {
 });
 
 it('Get an attribute value to get matching items', function () {
-  return test.get('http://argos.local:5984/attribute/Vitraux - Bénel/spatial/Église Saint-Nizier, Troyes')
+  return test.get('http://localhost/attribute/Vitraux - Bénel/spatial/Église Saint-Nizier, Troyes')
     .expect('json', 'rows', [
       {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","spatial","Église Saint-Nizier, Troyes"],"value":{"item":{"id":"8a1750b17b11944108efaac593f4448e4e9f966b","name":"SNZ 006"}}}
     ]);

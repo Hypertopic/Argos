@@ -15,6 +15,7 @@ Installation requirements
 
 * Git client
 * [Docker Engine](https://docs.docker.com/install/)
+* [Node.js](https://nodejs.org)
 
 Installation procedure
 ----------------------
@@ -23,4 +24,7 @@ Installation procedure
     npm run start:db
     npm run configure:db
 
-* Your Argos API endpoint is now available at <http://127.0.0.1:5984/argos/_design/argos/_rewrite/> (this URI can be further simplified by the use of CouchDB virtual servers feature or the use of a reverse proxy like [AAAforREST](https://github.com/Hypertopic/AAAforREST)). Check the [Hypertopic protocol specification](https://github.com/Hypertopic/Protocol/blob/master/README.md) for usable HTTP resources and methods.
+Two services are now available:
+
+- Argos API endpoint at <http://localhost/> (check the [Hypertopic protocol specification](https://github.com/Hypertopic/Protocol/blob/master/README.md) for usable HTTP resources and methods),
+- CouchDB administration interface at <http://localhost:5984/_utils/> (that should be kept accessible only to system administrators).
