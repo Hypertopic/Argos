@@ -14,14 +14,10 @@ addons:
   hosts: argos.local
 
 install:
-- docker pull couchdb
-- docker run -d -p 5984:5984 couchdb
+- npm run install:db
+- npm run start:db
 - npm install
-- curl -X PUT localhost:5984/argos
-- curl -X PUT -d '"false"' localhost:5984/_node/_local/_config/httpd/secure_rewrites
-- curl -X PUT -d '"/argos/_design/argos/_rewrite"' localhost:5984/_node/_local/_config/vhosts/argos.local
-- pip install --user couchapp
-- couchapp pushdocs __tests__/api/fixtures  http://localhost:5984/argos
-- couchapp push app http://localhost:5984/argos
+- npm run populate:db
+- npm run configure:db
 
 script: npm test
