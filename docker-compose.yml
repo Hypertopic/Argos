@@ -8,6 +8,7 @@ services:
       - 5984:5984
     volumes:
       - ./data:/opt/couchdb/data
+      - ./conf/couchdb.ini:/opt/couchdb/etc/local.d/docker.ini
     logging:
       options:
         max-size: "1M"
@@ -18,4 +19,4 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
