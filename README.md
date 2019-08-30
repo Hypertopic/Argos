@@ -20,8 +20,8 @@ Installation requirements
 Installation procedure
 ----------------------
 
-    npm run install:db
-    npm run start:db
+    docker pull benel/couchapp
+    docker-compose up -d
     npm run configure:db
 
 Two services are now available:

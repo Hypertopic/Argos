@@ -3,11 +3,8 @@
   "version": "4.0.0",
   "description": "Contradictory/complementary categorisations management",
   "scripts": {
-    "install:db": "docker pull couchdb && docker pull benel/couchapp && docker pull nginx",
-    "start:db": "docker-compose up -d",
-    "configure:db": "curl -X PUT -d '\"false\"' localhost:5984/_node/_local/_config/httpd/secure_rewrites && docker run --rm -v \"$(pwd)\"/app:/app --network argos_default benel/couchapp push . http://argos_couchdb_1:5984/argos",
+    "configure:db": "docker run --rm -v \"$(pwd)\"/app:/app --network argos_default benel/couchapp push . http://argos_couchdb_1:5984/argos",
     "populate:db": "docker run --rm -v \"$(pwd)\"/__tests__/api/fixtures:/app --network argos_default benel/couchapp pushdocs . http://argos_couchdb_1:5984/argos",
-    "stop:db": "docker-compose down",
     "test": "jest"
   },
   "repository": {

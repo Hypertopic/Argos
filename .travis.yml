@@ -9,8 +9,8 @@ cache:
     - "node_modules"
 
 install:
-- npm run install:db
-- npm run start:db
+- docker pull benel/couchapp
+- docker-compose up -d
 - npm install
 - npm run populate:db
 - npm run configure:db
