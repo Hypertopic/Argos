@@ -20,3 +20,22 @@ services:
       - 80:80
     volumes:
       - ./conf/nginx.conf:/etc/nginx/nginx.conf:ro
+
+  running_infrastructure:
+    image: dadarek/wait-for-dependencies
+    command: couchdb:5984
+    depends_on:
+      - couchdb
+      - nginx
+
+  push_docs:
+    image: benel/couchapp
+    command: pushdocs . http://argos_couchdb_1:5984/argos
+    volumes:
+      - ./__tests__/api/fixtures:/app
+
+  push_app:
+    image: benel/couchapp
+    command: push . http://argos_couchdb_1:5984/argos
+    volumes:
+      - ./app:/app

@@ -9,10 +9,9 @@ cache:
     - "node_modules"
 
 install:
-- docker pull benel/couchapp
-- docker-compose up -d
+- docker-compose up -d running_infrastructure
+- docker-compose run --rm push_docs
+- docker-compose run --rm push_app
 - npm install
-- npm run populate:db
-- npm run configure:db
 
 script: npm test

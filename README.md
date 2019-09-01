@@ -13,16 +13,13 @@ Argos is a server software. There is no need to install it on your own computer 
 Installation requirements
 -------------------------
 
-* Git client
 * [Docker Engine](https://docs.docker.com/install/)
-* [Node.js](https://nodejs.org)
 
 Installation procedure
 ----------------------
 
-    docker pull benel/couchapp
-    docker-compose up -d
-    npm run configure:db
+    docker-compose up -d running_infrastructure
+    docker-compose run --rm push_app
 
 Two services are now available:
 
