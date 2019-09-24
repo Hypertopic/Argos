@@ -25,3 +25,27 @@ Two services are now available:
 
 - Argos API endpoint at <http://localhost/> (check the [Hypertopic protocol specification](https://github.com/Hypertopic/Protocol/blob/master/README.md) for usable HTTP resources and methods),
 - CouchDB administration interface at <http://localhost:5984/_utils/> (that should be kept accessible only to system administrators).
+
+Authentication settings
+-----------------------
+
+By default, authentication is set up for both:
+
+- users managed by an LDAP server (to be changed to match your organization settings),
+- users managed by CouchDB.
+
+Users can be registered in CouchDB with the following process:
+
+1. Go to the CouchDB administration interface.
+2. Create a database named '_users'.
+3. In this database, create a user document. For example:
+
+```json
+{
+    "_id": "org.couchdb.user:alice",
+    "name": "alice",
+    "type": "user",
+    "roles": [],
+    "password": "myGreatPassword"
+}
+```

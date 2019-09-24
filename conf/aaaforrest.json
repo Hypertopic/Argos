@@ -1,0 +1,21 @@
+{
+  "sites": [{
+    "hostProxy": "",
+    "host": "couchdb",
+    "port": 5984,
+    "path": "/argos/_design/argos/_rewrite",
+    "hideLocationParts": 1,
+    "authentication": [
+      {"url": "ldap://ldap.forumsys.com", "id": "uid", "dn": "dc=example,dc=com"},
+      {"url": "http://couchdb:5984/"}
+    ],
+    "forwardedLoginSecret": "TO_BE_CHANGED",
+    "sessionHandler": {
+      "path": "/_session"
+    },
+    "rules":[{
+      "control": "true",
+      "action": "authenticateIfPresent(context,function(){proxyWork(context)})"
+    }]
+  }]
+}
