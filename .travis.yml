@@ -2,7 +2,7 @@ services: docker
 
 language: node_js
 
-node_js: 10
+node_js: lts/*
 
 cache:
   directories:
