@@ -22,22 +22,27 @@ services:
     volumes:
       - ./conf/aaaforrest.json:/AAAforREST/conf/config.json:ro
     working_dir: /AAAforREST
+    restart: on-failure
+    depends_on:
+      - couchdb
  
-  running_infrastructure:
-    image: dadarek/wait-for-dependencies
-    command: couchdb:5984
+  test_data:
+    image: benel/couchapp
+    command: pushdocs .
+    environment:
+      - URI=http://couchdb:5984/argos
+    volumes:
+      - ./__tests__/api/fixtures:/app
+    depends_on:
+      - couchdb
+
+  argos:
+    image: benel/couchapp
+    command: push .
+    environment:
+      - URI=http://couchdb:5984/argos
+    volumes:
+      - ./app:/app
     depends_on:
       - couchdb
       - proxy
-
-  push_docs:
-    image: benel/couchapp
-    command: pushdocs . http://argos_couchdb_1:5984/argos
-    volumes:
-      - ./__tests__/api/fixtures:/app
-
-  push_app:
-    image: benel/couchapp
-    command: push . http://argos_couchdb_1:5984/argos
-    volumes:
-      - ./app:/app
