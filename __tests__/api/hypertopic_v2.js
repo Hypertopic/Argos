@@ -10,7 +10,6 @@ test.globalSetup({
 
 it('Get a portfolio to get an agregate of related corpora and viewpoints', function () {
   return test.get('http://localhost/user/vitraux')
-    .expect('header', 'Content-Type', 'application/json')
     .expect('json', 'rows', [
       {id:'Vitraux - Bénel', key:['vitraux'], value:{corpus:{id:'Vitraux - Bénel', name:'Vitraux - Bénel'}}},
       {id:'a76306e4f17ed4f79e7e481eb9a1bd06', key:['vitraux'], value:{viewpoint:{id:'a76306e4f17ed4f79e7e481eb9a1bd06', name:"Histoire de l'art"}}},

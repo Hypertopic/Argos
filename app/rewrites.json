@@ -13,15 +13,14 @@
     }
   }, {
     "from": "",
-    "to": "../../",
-    "method": "POST"
-  }, {
-    "from": "",
     "to": "_list/index/stats",
     "query": {
       "group": "true"
     },
     "method": "GET"
+  }, {
+    "from": "",
+    "to": "../../"
   }, {
     "from": "_session",
     "to": "../../../_session"

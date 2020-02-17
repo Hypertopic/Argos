@@ -1,0 +1,18 @@
+port: 1337
+service: couchdb:5984
+path: /argos/_design/argos/_rewrite
+secret: TO_BE_CHANGED
+logFormat: dev
+session:
+  secret: TO_BE_CHANGED2
+  resave: false
+  saveUninitialized: false
+  unset: destroy
+cors:
+  credentials: true
+  origin: http://localhost:3000
+ldap:
+  url: ldap://ldap.forumsys.com
+  searchBase: dc=example,dc=com
+  searchFilter: (uId={{username}})
+
