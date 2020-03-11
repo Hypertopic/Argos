@@ -28,23 +28,26 @@ Two services are now available:
 Authentication settings
 -----------------------
 
-By default, authentication is set up for both:
+### for users managed by an LDAP server
 
-- users managed by an LDAP server (to be changed to match your organization settings),
-- users managed by CouchDB.
+The `ldap` entry of the `conf/aaaforrest.yml` should be:
 
-Users can be registered in CouchDB with the following process:
+- updated to match your organization settings,
+- or wiped out if you do not use it.
 
-1. Go to the CouchDB administration interface.
-2. Create a database named '_users'.
-3. In this database, create a user document. For example:
+### for users managed by CouchDB
 
-```json
-{
-    "_id": "org.couchdb.user:alice",
-    "name": "alice",
-    "type": "user",
-    "roles": [],
-    "password": "myGreatPassword"
-}
-```
+1. Create the `_users` database in [CouchDB administration interface](http://localhost:5984/_utils/#/_all_dbs) and then a user (change values as needed):
+
+    ```yaml
+    {
+      "_id": "org.couchdb.user:alice",
+      "type": "user",
+      "name": "alice",
+      "password": "wonderland",
+      "roles": []
+    }
+    ```
+
+2. Create an administrator in [CouchDB administration interface](http://localhost:5984/_utils/#createAdmin/nonode@nohost)
+
