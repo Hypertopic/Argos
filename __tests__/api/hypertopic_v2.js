@@ -1,87 +1,146 @@
-const test = require('frisby');
+const Hypertopic = require('hypertopic');
+const Joi = require('@hapi/joi');
 
-test.globalSetup({
-  request: {
-    headers: {
-      'Accept': 'application/json',
-    }
+const db = new Hypertopic([
+  'http://localhost'
+]);
+
+expect.extend({
+  toMatchSchema: (data, schema, options) => {
+    let error = schema.validate(data, options).error;
+    let pass = !error;
+    return {
+      message: () => (pass) ? 'Success' : JSON.stringify(error.details),
+      pass
+    };
   }
 });
 
+const named_schema = Joi.object({
+  id: Joi.string().required(),
+  name: Joi.string().allow('').required()
+});
+
+const user_schema = Joi.object({
+  corpus: Joi.array().min(1).items(named_schema).required(),
+  viewpoint: Joi.array().min(2).items(named_schema).required()
+});
+
+const values_schema = Joi.array().min(1).items(Joi.string());
+
+const item_schema = Joi.object({
+  name: values_schema,
+  resource: values_schema,
+  topic: Joi.array().min(1).items(Joi.object({
+    viewpoint: Joi.string(),
+    id: Joi.string()
+  }))
+}).unknown();
+
+const corpus_schema = Joi.object({
+  name: values_schema.required(),
+  user: values_schema.required()
+}).pattern(Joi.string(), item_schema);
+
+const resource_schema = Joi.object({
+  item: Joi.array().min(1).items(Joi.object({
+    corpus: Joi.string().required(),
+    id: Joi.string().required()
+  }))
+});
+
+const topic_schema = Joi.object({
+  name: values_schema.required(),
+  broader: Joi.array().min(1).items(named_schema),
+  narrower: Joi.array().min(1).items(named_schema)
+});
+
+const viewpoint_schema = Joi.object().keys({
+  name: values_schema.required(),
+  user: values_schema.required(),
+  upper: Joi.array().min(1).items(named_schema),
+}).pattern(Joi.string(), topic_schema);
+
+const attributes_schema = Joi.object()
+  .pattern(Joi.string(), Joi.array().min(1).items(Joi.number()));
+
+const attribute_values_schema = Joi.object({
+  item: Joi.array().min(1).items(named_schema).required()
+});
+
 it('Get a portfolio to get an agregate of related corpora and viewpoints', function () {
-  return test.get('http://localhost/user/vitraux')
-    .expect('json', 'rows', [
-      {id:'Vitraux - Bénel', key:['vitraux'], value:{corpus:{id:'Vitraux - Bénel', name:'Vitraux - Bénel'}}},
-      {id:'a76306e4f17ed4f79e7e481eb9a1bd06', key:['vitraux'], value:{viewpoint:{id:'a76306e4f17ed4f79e7e481eb9a1bd06', name:"Histoire de l'art"}}},
-      {id:'56e092d8a6179a788c74b618b29801c0', key:['vitraux'], value:{viewpoint:{id:'56e092d8a6179a788c74b618b29801c0', name:'Histoire des religions'}}},
-    ]);
+  let user = 'vitraux';
+  return db.getView(`/user/${user}`).then((x) => {
+    expect(x[user]).toBeDefined();
+    expect(x[user]).toMatchSchema(user_schema);
+  });
 });
 
 it('Get a corpus to get contained items and highlights with their attributes and topics', function () {
-  return test.get('http://localhost/corpus/Vitraux - Bénel')
-    .expect('json', 'rows', [
-      {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"creator":"Aurélien Bénel"}},
-      {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"name":"SNZ 006","resource":"http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b"}},
-      {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"topic":{"viewpoint":"56e092d8a6179a788c74b618b29801c0","id":"2c7175571d9d354cb57d328503004d85"}}},
-      {"id":"dd7dbd7500767c049e75c85b6fb51c4a36c099dc","key":["Vitraux - Bénel","dd7dbd7500767c049e75c85b6fb51c4a36c099dc"],"value":{"name":"SM 001","resource":"http://steatite.hypertopic.org/picture/dd7dbd7500767c049e75c85b6fb51c4a36c099dc"}},
-    ]);
+  let corpus = 'Vitraux - Bénel';
+  return db.getView(`/corpus/${corpus}`).then((x) => {
+    expect(x[corpus]).toBeDefined();
+    expect(x[corpus]).toMatchSchema(corpus_schema);
+  });
 });
 
 it('Get an item to get its highlights, attributes and topics', function () {
-  return test.get('http://localhost/item/Vitraux - Bénel/8a1750b17b11944108efaac593f4448e4e9f966b')
-    .expect('json', 'rows', [
-      {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"creator":"Aurélien Bénel"}},
-      {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"name":"SNZ 006","resource":"http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b"}},
-      {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"topic":{"viewpoint":"56e092d8a6179a788c74b618b29801c0","id":"2c7175571d9d354cb57d328503004d85"}}},
-    ]);
+  let corpus = 'Vitraux - Bénel';
+  let item = '8a1750b17b11944108efaac593f4448e4e9f966b';
+  return db.getView(`/item/${corpus}/${item}`).then((x) => {
+    expect(x[corpus]).toBeDefined();
+    expect(x[corpus][item]).toMatchSchema(item_schema);
+  });
 });
 
 it('Get a resource to find the corresponding item (and corpus)', function() {
-  return test.get('http://localhost/item/?resource=http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b')
-    .expect('json', 'rows', [
-      {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b"],"value":{"item":{"corpus":"Vitraux - Bénel","id":"8a1750b17b11944108efaac593f4448e4e9f966b"}}}
-    ]);
+  let resource = 'http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b';
+  return db.getView(`/item/?resource=${resource}`).then((x) => {
+    expect(x[resource]).toBeDefined();
+    expect(x[resource]).toMatchSchema(resource_schema);
+  });
 });
 
 it('Get a viewpoint to get contained topics with their relations to other topics', function () {
-  return test.get('http://localhost/viewpoint/56e092d8a6179a788c74b618b29801c0')
-    .expect('json', 'rows', [
-      {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0"],"value":{"upper":{"id":"76d8912cd913cf48bb394fba1f72db39","name":"Récits"}}},
-      {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0"],"value":{"upper":{"id":"c556d31576c0bc40953ca5e04ab3fc72","name":"Personnages"}}},
-      {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0","c556d31576c0bc40953ca5e04ab3fc72"],"value":{"name":"Personnages"}},
-      {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0","c556d31576c0bc40953ca5e04ab3fc72"],"value":{"narrower":{"id":"437d2f65c8397f47825ab97ff5281482","name":"AT"}}},
-      {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0","f1520229979b11428f94a004f880c022"],"value":{"broader":{"id":"437d2f65c8397f47825ab97ff5281482","name":"AT"}}},
-      {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0","f1520229979b11428f94a004f880c022"],"value":{"name":"Abram/Abraham"}},
-    ]);
+  let viewpoint = '56e092d8a6179a788c74b618b29801c0';
+  return db.getView(`/viewpoint/${viewpoint}`).then((x) => {
+    expect(x[viewpoint]).toBeDefined();
+    expect(x[viewpoint]).toMatchSchema(viewpoint_schema);
+  });
 });
 
 it('Get a topic to get its relations to other topics', function () {
-  return test.get('http://localhost/topic/56e092d8a6179a788c74b618b29801c0/c556d31576c0bc40953ca5e04ab3fc72')
-    .expect('json', 'rows', [
-      {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0","c556d31576c0bc40953ca5e04ab3fc72"],"value":{"name":"Personnages"}},
-      {"id":"56e092d8a6179a788c74b618b29801c0","key":["56e092d8a6179a788c74b618b29801c0","c556d31576c0bc40953ca5e04ab3fc72"],"value":{"narrower":{"id":"437d2f65c8397f47825ab97ff5281482","name":"AT"}}},
-    ]);
+  let viewpoint = '56e092d8a6179a788c74b618b29801c0';
+  let topic = 'c556d31576c0bc40953ca5e04ab3fc72';
+  return db.getView(`/topic/${viewpoint}/${topic}`).then((x) => {
+    expect(x[viewpoint]).toBeDefined();
+    expect(x[viewpoint][topic]).toMatchSchema(topic_schema);
+  });
 });
 
 it('Get corpus attributes to get used attribute keys', function () {
-  return test.get('http://localhost/attribute/Vitraux - Bénel/')
-    .expect('json', 'rows', [
-      {"key":["Vitraux - Bénel","creator"],"value":2},
-      {"key":["Vitraux - Bénel","spatial"],"value":2}
-    ]);
+  let corpus = 'Vitraux - Bénel';
+  return db.getView(`/attribute/${corpus}/`).then((x) => {
+    expect(x[corpus]).toBeDefined();
+    expect(x[corpus]).toMatchSchema(attributes_schema);
+  });
 });
 
 it('Get an attribute to get used corresponding values', function () {
-  return test.get('http://localhost/attribute/Vitraux - Bénel/spatial/')
-    .expect('json', 'rows', [
-      {"key":["Vitraux - Bénel","spatial","Église Saint-Nizier, Troyes"],"value":1},
-      {"key":["Vitraux - Bénel","spatial","Église Sainte-Madeleine, Troyes"],"value":1}
-    ]);
+  let corpus = 'Vitraux - Bénel';
+  let attribute = 'spatial';
+  return db.getView(`/attribute/${corpus}/${attribute}/`).then((x) => {
+    expect(x[corpus]).toBeDefined();
+    expect(x[corpus][attribute]).toMatchSchema(attributes_schema);
+  });
 });
 
 it('Get an attribute value to get matching items', function () {
-  return test.get('http://localhost/attribute/Vitraux - Bénel/spatial/Église Saint-Nizier, Troyes')
-    .expect('json', 'rows', [
-      {"id":"8a1750b17b11944108efaac593f4448e4e9f966b","key":["Vitraux - Bénel","spatial","Église Saint-Nizier, Troyes"],"value":{"item":{"id":"8a1750b17b11944108efaac593f4448e4e9f966b","name":"SNZ 006"}}}
-    ]);
+  let corpus = 'Vitraux - Bénel';
+  let attribute = 'spatial';
+  let value = 'Église Saint-Nizier, Troyes';
+  return db.getView(`/attribute/${corpus}/${attribute}/${value}`).then((x) => {
+    expect(x[corpus]).toBeDefined();
+    expect(x[corpus][attribute][value]).toMatchSchema(attribute_values_schema);
+  });
 });
