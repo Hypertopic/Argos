@@ -17,10 +17,12 @@
     "name": "Aurélien Bénel",
     "url": "https://github.com/benel"
   },
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Chao Zhou",
       "url": "https://github.com/chao"
-  }],
+    }
+  ],
   "license": "AGPL-3.0-only",
   "bugs": {
     "url": "https://github.com/Hypertopic/Argos/issues"
@@ -28,8 +30,8 @@
   "homepage": "https://github.com/Hypertopic/Argos#readme",
   "devDependencies": {
     "frisby": "^2.1.0",
-    "xml-js": "^1.6.8",
     "jest": "^24.8.0",
-    "jest-cli": "^24.8.0"
+    "jest-cli": "^24.8.0",
+    "xml-js": "^1.6.8"
   }
 }
