@@ -18,26 +18,28 @@ function(o) {
   }
 
   if (o.corpus_name) { //corpus
+    var entry = {};
     //corpus name
-    emit([o._id], {name:o.corpus_name});
+    entry["name"] = o.corpus_name;
     //corpus users
-    for each (var u in o.users) {
-      emit([o._id], {user:u});
-    }
+    entry["user"] = o.users;
+
+    emit([o._id], entry);
   } else if (o.item_corpus) { //item
     //item name, thumbnail and resource
-    emit([o.item_corpus, o._id], {
+    var entry = {
       name:o.item_name,
       thumbnail:o.thumbnail,
       resource:o.resource
-    });
+    };
     //item topics
+    entry["topic"] = [];
     for (var t in o.topics) {
       var viewpoint_id = o.topics[t].viewpoint;
-      emit([o.item_corpus, o._id], {topic:{
+      entry["topic"].push({
         viewpoint: viewpoint_id,
         id: t
-      }});
+      });
     }
     //item highlights
     for (var h in o.highlights) {
@@ -57,10 +59,9 @@ function(o) {
     //item attributes
     for (var key in o) {
       if (!isReserved(key)) {
-        var entry = {};
         entry[key] = o[key];
-        emit([o.item_corpus, o._id], entry);
       }
     }
+    emit([o.item_corpus, o._id], entry);
   }
 }
