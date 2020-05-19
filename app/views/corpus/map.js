@@ -12,6 +12,7 @@ function(o) {
       case "item_name":
       case "thumbnail":
       case "resource":
+      case "items":
       case "topics":
       case "highlights": return true;
     }
@@ -40,6 +41,18 @@ function(o) {
       entry["topic"].push({
         viewpoint: viewpoint_id,
         id: t
+      });
+    }
+    //item-bound items
+    entry["item"] = [];
+    for (var i in o.items) {
+      var item = {
+        corpus: o.items[i].corpus,
+        id: i
+      };
+      entry["item"].push(item);
+      emit([item.corpus, item.id], { // reverse link
+        item: {corpus:o.item_corpus, id: o._id}
       });
     }
     //item highlights

@@ -12,6 +12,7 @@ function(o) {
       case "item_name":
       case "thumbnail":
       case "resource":
+      case "items":
       case "topics":
       case "highlights": return true;
     }
