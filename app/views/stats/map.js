@@ -7,7 +7,7 @@ function (o) {
     };
   } else if (o.corpus_name) {
     emit('corpora', 1);
-  } else if (o.item_name) {
+  } else if (o.item_name !== undefined) {
     emit('items', 1);
     if (o.topics) {
       emit('items-with-topics', 1);
