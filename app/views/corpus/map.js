@@ -7,6 +7,7 @@ function(o) {
       case "_attachments":
       case "_deleted_conflicts":
       case "_conflicts":
+      case "couchapp":
       case "item_corpus":
       case "item_name":
       case "thumbnail":
