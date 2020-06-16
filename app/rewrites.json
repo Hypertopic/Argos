@@ -1,5 +1,13 @@
 [
   {
+    "to": "../../_changes",
+    "from": "events",
+    "query": {
+      "filter": "argos/events",
+      "feed": "eventsource"
+    }
+  },
+  {
     "from": "item/",
     "to": "_view/resource",
     "query": {
