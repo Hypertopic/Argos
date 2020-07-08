@@ -1,0 +1,36 @@
+{
+   "_id" : "c7df435216434359ed06b5edacfa589344186b17",
+   "item_name" : "PSM 002",
+   "resource" : "http://steatite.hypertopic.org/picture/c7df435216434359ed06b5edacfa589344186b17",
+   "thumbnail" : "http://steatite.hypertopic.org/thumbnail/c7df435216434359ed06b5edacfa589344186b17",
+   "item_corpus" : "Vitraux - Dr. Krieger",
+   "spatial" : "Pont-Sainte-Marie",
+   "topics" : {
+      "9c97779ef9e49e43a65ac81efc439bcd" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "4991b7b717da9a4d8a769e8664b136a0" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "29f3f878720e4c429650650227e13e5b" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "c302be2fd270c74480e80e5c8d85edda" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "8e2a5c829fee6845bb5c4b3e4cc482b4" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "af5bda3257ba7c4baac34c003c71da41" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "83624cff034f5f4ba45971a2481b5edf" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "f1520229979b11428f94a004f880c022" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      }
+   },
+   "created": "2013-03-04",
+   "creator" : "Denis Krieger"
+}

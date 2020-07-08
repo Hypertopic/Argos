@@ -1,0 +1,21 @@
+{
+  "_id":"060beb40525ef5634b0830006bd00a477e425743",
+  "item_name":"SNZ 009",
+  "item_corpus":"Vitraux - Bénel",
+  "resource":"http://steatite.hypertopic.org/picture/060beb40525ef5634b0830006bd00a477e425743",
+  "thumbnail":"http://steatite.hypertopic.org/thumbnail/060beb40525ef5634b0830006bd00a477e425743",
+  "creator":"Aurélien Bénel",
+  "created":"2014-04-05",
+  "spatial":"Église Saint-Nizier, Troyes",
+  "topics":{
+    "6b6ae99bd24f904891a29e58bcc0181f":{
+      "viewpoint":"56e092d8a6179a788c74b618b29801c0"
+    },
+    "8e2a5c829fee6845bb5c4b3e4cc482b4":{
+      "viewpoint":"56e092d8a6179a788c74b618b29801c0"
+    },
+    "059bf357606b804f989e5f77bf8c4d06":{
+      "viewpoint":"a76306e4f17ed4f79e7e481eb9a1bd06"
+    }
+  }
+}

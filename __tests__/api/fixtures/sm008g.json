@@ -1,0 +1,27 @@
+{
+   "_id" : "710a9531a5f6991321d3f27b637648c0cd5b7926",
+   "item_name" : "SM 008 g",
+   "creator" : "Aurélien Bénel",
+   "created": "2016-03-13",
+   "topics" : {
+      "fed64e22e60941409ad45c167fc396b8" : {
+         "viewpoint" : "a76306e4f17ed4f79e7e481eb9a1bd06"
+      },
+      "2c7175571d9d354cb57d328503004d85" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "831f34279290024397b7f7e34f9e797d" : {
+         "viewpoint" : "a76306e4f17ed4f79e7e481eb9a1bd06"
+      },
+      "b7e13ee879fecf41b8f462ff22cd3917" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "f1520229979b11428f94a004f880c022" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      }
+   },
+   "spatial" : "Église Sainte-Madeleine, Troyes",
+   "resource" : "http://steatite.hypertopic.org/picture/710a9531a5f6991321d3f27b637648c0cd5b7926",
+   "thumbnail" : "http://steatite.hypertopic.org/thumbnail/710a9531a5f6991321d3f27b637648c0cd5b7926",
+   "item_corpus" : "Vitraux - Bénel"
+}

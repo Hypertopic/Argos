@@ -1,0 +1,69 @@
+{
+   "resource" : "http://steatite.hypertopic.org/picture/357d26693b4406b4fc12cbdbb151c7580e850233",
+   "thumbnail" : "http://steatite.hypertopic.org/thumbnail/357d26693b4406b4fc12cbdbb151c7580e850233",
+   "topics" : {
+      "ff69b3487ba60d4d8e2ea00441bba238" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "4c13f9cb1878d84881e57bacecc46b4b" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "54197a62fb3eb3458a444ea88b6fb961" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "0c828dfb770d9140b50c6771d42e36eb" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "2d533a76011efc43890a637cf9f89dfc" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "99781d1947548047a98b256e0c16820c" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "8e2a5c829fee6845bb5c4b3e4cc482b4" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "a88bd1e60562fb4e88a6ab49c38cccb7" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "f1520229979b11428f94a004f880c022" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "018f15aacd36654b8c86284065f1e27b" : {
+         "viewpoint" : "a76306e4f17ed4f79e7e481eb9a1bd06"
+      },
+      "93dc3c61af79de438d34b95afaf5621a" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "2ccf8006b26c0343bbd2d51db55c1bea" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "8df01e02820fbe46aaab533c8c6f39e6" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "ab82bc01982dfd4883ea028737176b4f" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "25d954dabd7b004497541466041afa6e" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "de5a7b8e7b39e44e87f32426c5e9745c" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "842fbba9986e0e4c87f1364fa3382d28" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "f50186ef4203aa42ba5768a5c35c54b1" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "57aa109de9a25a4e8efd3af6ae0459a3" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      }
+   },
+   "spatial" : "Église Saint-Nizier, Troyes",
+   "item_name" : "SNZ 005",
+   "_id" : "357d26693b4406b4fc12cbdbb151c7580e850233",
+   "item_corpus" : "Vitraux - Bénel",
+   "created": "2014-04-05",
+   "creator" : "Aurélien Bénel"
+}

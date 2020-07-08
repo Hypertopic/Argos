@@ -31,7 +31,7 @@ const values_schema = Joi.array().min(1).items(Joi.string());
 const item_schema = Joi.object({
   name: values_schema,
   resource: values_schema,
-  topic: Joi.array().min(1).items(Joi.object({
+  topic: Joi.array().items(Joi.object({
     viewpoint: Joi.string(),
     id: Joi.string()
   }))

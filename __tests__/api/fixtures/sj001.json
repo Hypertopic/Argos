@@ -1,0 +1,24 @@
+{
+   "_id" : "8d27115e20f9439b627ac511ade9a05bbe509130",
+   "creator" : "Aurélien Bénel",
+   "resource" : "http://steatite.hypertopic.org/picture/8d27115e20f9439b627ac511ade9a05bbe509130",
+   "thumbnail" : "http://steatite.hypertopic.org/thumbnail/8d27115e20f9439b627ac511ade9a05bbe509130",
+   "item_corpus" : "Vitraux - Bénel",
+   "created": "2016-06-18",
+   "spatial" : "Église Saint-Jean-au-Marché, Troyes",
+   "item_name" : "SJ 001",
+   "topics" : {
+      "f1520229979b11428f94a004f880c022" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "5c3074251f6f8d42a2f80fb507464cdf" : {
+         "viewpoint" : "a76306e4f17ed4f79e7e481eb9a1bd06"
+      },
+      "2c7175571d9d354cb57d328503004d85" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "b7e13ee879fecf41b8f462ff22cd3917" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      }
+   }
+}

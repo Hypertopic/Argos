@@ -19,7 +19,10 @@
            "viewpoint": "a76306e4f17ed4f79e7e481eb9a1bd06"
        }
    },
+   "items":{"710a9531a5f6991321d3f27b637648c0cd5b7926":{"corpus":"Vitraux - Bénel"}},
    "spatial": "Église Saint-Nizier, Troyes",
    "creator": "Aurélien Bénel",
-   "resource": "http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b"
+   "created":"2014-04-05",
+   "resource": "http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b",
+   "thumbnail": "http://steatite.hypertopic.org/thumbnail/8a1750b17b11944108efaac593f4448e4e9f966b"
 }

@@ -23,11 +23,28 @@
            ],
            "name": "XIXe s."
        },
+       "36b25da901f571408536a85116ef3835": {
+           "broader": [
+               "addd464d06159c4eb0b9666cffb2042c"
+           ],
+           "name":"1894"
+       },
+       "e145c06d9889434596e4f1c67ed941bb": {
+           "broader": [
+               "bf4bb69b78e65448ac34b405fb087219"
+           ],
+           "name": "1er tiers XVIe"
+       },
        "9699bc2f8010944aa0574deabe8edb6d": {
            "broader": [
                "bf4bb69b78e65448ac34b405fb087219"
            ],
            "name": "1er quart XVIe"
+       },
+       "fed64e22e60941409ad45c167fc396b8": {
+           "broader": [
+               "9699bc2f8010944aa0574deabe8edb6d"],
+           "name": "1518"
        },
        "e01a7cb572461a43a22aa8f771235cb6": {
            "broader": [

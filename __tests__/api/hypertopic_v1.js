@@ -39,7 +39,7 @@ it('Get a corpus to get contained items and highlights with their attributes and
       expect(viewpoints).toEqual(
         expect.arrayContaining([
           expect.objectContaining({_text: 'SNZ 006'}),
-          expect.objectContaining({_text: 'SM 001'})
+          expect.objectContaining({_text: 'SM 001 m'})
         ])
       );
     });

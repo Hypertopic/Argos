@@ -1,0 +1,27 @@
+{
+   "resource" : "http://steatite.hypertopic.org/picture/493f2a3702be0e9a67a6fd29700fd4dff8f6986a",
+   "thumbnail" : "http://steatite.hypertopic.org/thumbnail/493f2a3702be0e9a67a6fd29700fd4dff8f6986a",
+   "item_name" : "SR 005",
+   "_id" : "493f2a3702be0e9a67a6fd29700fd4dff8f6986a",
+   "creator" : "Aurélien Bénel",
+   "created":	"2015-10-24",
+   "topics" : {
+      "36b25da901f571408536a85116ef3835" : {
+         "viewpoint" : "a76306e4f17ed4f79e7e481eb9a1bd06"
+      },
+      "0b49fccfd0f3cf4dba0916bc7cfbb56e" : {
+         "viewpoint" : "a76306e4f17ed4f79e7e481eb9a1bd06"
+      },
+      "2c7175571d9d354cb57d328503004d85" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "f1520229979b11428f94a004f880c022" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "b7e13ee879fecf41b8f462ff22cd3917" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      }
+   },
+   "item_corpus" : "Vitraux - Bénel",
+   "spatial" : "Église Saint-Remi, Troyes"
+}

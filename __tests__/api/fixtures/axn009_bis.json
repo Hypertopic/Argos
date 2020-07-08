@@ -1,0 +1,23 @@
+{
+  "_id":"d4dd4b9af975a07ecd0331307db8ca24daad7535",
+  "item_name":"AXN 009",
+  "item_corpus":"Vitraux - Recensement",
+  "resource":"http://steatite.hypertopic.org/picture/d4dd4b9af975a07ecd0331307db8ca24daad7535",
+  "thumbnail":"http://steatite.hypertopic.org/thumbnail/d4dd4b9af975a07ecd0331307db8ca24daad7535",
+  "spatial":"Église Saint-Loup, Auxon",
+  "created":"1907/1914",
+  "topics": {
+    "8e2a5c829fee6845bb5c4b3e4cc482b4": {
+      "viewpoint":"56e092d8a6179a788c74b618b29801c0"
+    },
+    "ff69b3487ba60d4d8e2ea00441bba238": {
+      "viewpoint":"56e092d8a6179a788c74b618b29801c0"
+    },
+    "2182a45481bd0a46a58721f2a861d4bf": {
+      "viewpoint":"56e092d8a6179a788c74b618b29801c0"
+    },
+    "e145c06d9889434596e4f1c67ed941bb": {
+      "viewpoint":"a76306e4f17ed4f79e7e481eb9a1bd06"
+    }
+  }
+}

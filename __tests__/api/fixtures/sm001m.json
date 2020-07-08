@@ -1,0 +1,27 @@
+{
+   "item_corpus" : "Vitraux - Bénel",
+   "spatial" : "Église Sainte-Madeleine, Troyes",
+   "topics" : {
+      "addd464d06159c4eb0b9666cffb2042c" : {
+         "viewpoint" : "a76306e4f17ed4f79e7e481eb9a1bd06"
+      },
+      "af5bda3257ba7c4baac34c003c71da41" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "bcd1b3a5174d8f409e5cae0c5b58b48d" : {
+         "viewpoint" : "a76306e4f17ed4f79e7e481eb9a1bd06"
+      },
+      "f9f3cde87d527644b181055440e2cea9" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      },
+      "f1520229979b11428f94a004f880c022" : {
+         "viewpoint" : "56e092d8a6179a788c74b618b29801c0"
+      }
+   },
+   "creator": "Aurélien Bénel",
+   "created":	"2016-03-13",
+   "_id" : "ae85dceaa0279332c9ebb212af8a798e3cf365cc",
+   "item_name" : "SM 001 m",
+   "resource" : "http://steatite.hypertopic.org/picture/ae85dceaa0279332c9ebb212af8a798e3cf365cc",
+   "thumbnail" : "http://steatite.hypertopic.org/thumbnail/ae85dceaa0279332c9ebb212af8a798e3cf365cc"
+}
