@@ -36,7 +36,7 @@ services:
     depends_on:
       - couchdb
 
-  argos:
+  install:
     image: benel/couchapp
     command: push .
     environment:
@@ -45,4 +45,8 @@ services:
       - ./app:/app
     depends_on:
       - couchdb
+
+  argos:
+    depends_on:
+      - install
       - proxy
