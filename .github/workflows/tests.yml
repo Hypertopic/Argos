@@ -1,0 +1,17 @@
+name: Acceptance tests
+on: push
+defaults:
+  runs-on: ubuntu-latest
+jobs:
+  download:
+    steps:
+      - uses: actions/checkout@v2
+  install:
+    needs: download
+    steps:
+      - run: docker-compose up -d
+  test:
+    needs: download
+    steps:
+      - run: npm install
+      - run : npm test
