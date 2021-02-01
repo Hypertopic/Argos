@@ -18,7 +18,7 @@ Installation requirements
 Installation procedure
 ----------------------
 
-    docker-compose up -d argos
+    docker-compose up -d prod
 
 Two services are now available:
 

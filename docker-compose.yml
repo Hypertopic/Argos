@@ -15,7 +15,7 @@ services:
         max-file: "3"
     restart: on-failure
 
-  proxy:
+  prod:
     image: benel/aaaforrest
     ports:
       - 80:1337
@@ -24,7 +24,7 @@ services:
     working_dir: /AAAforREST
     restart: on-failure
     depends_on:
-      - couchdb
+      - install
  
   test_data:
     image: benel/couchapp
@@ -36,7 +36,7 @@ services:
     depends_on:
       - couchdb
 
-  argos:
+  install:
     image: benel/couchapp
     command: push .
     environment:
@@ -45,4 +45,3 @@ services:
       - ./app:/app
     depends_on:
       - couchdb
-      - proxy
