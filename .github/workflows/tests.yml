@@ -11,3 +11,4 @@ jobs:
         run: npm install
       - name: Run tests
         run : npm test
+        shell: 'script -q -e -c "bash {0}"'
