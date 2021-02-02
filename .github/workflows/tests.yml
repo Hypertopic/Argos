@@ -8,7 +8,7 @@ jobs:
       - name: Install and run Argos with test data
         run: |
           docker-compose up -d
-          curl http://localhost/
+          curl http://localhost:5984/argos/_design/argos/_rewrite/
       - name: Install test tools
         run: npm install
       - name: Run tests
