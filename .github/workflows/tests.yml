@@ -7,15 +7,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install and run Argos with test data
         run: docker-compose up -d
-      - name: Wait for data to be indexed
-        uses: nev7n/wait_for_response@v1
+      - name: Install test tools
+        run: npm install
+      - uses: nev7n/wait_for_response@v1
         with:
-          url: 'http://localhost:5984/argos/_design/argos/_rewrite/'
+          url: http://localhost/
           responseCode: 200
           timeout: 5000
           interval: 500
-      - name: Install test tools
-        run: npm install
       - name: Run tests
         run : npm test
         shell: 'script -q -e -c "bash {0}"'
