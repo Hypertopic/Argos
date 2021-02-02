@@ -6,15 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install and run Argos with test data
-        run: docker-compose up -d
+        run: |
+          docker-compose up -d
+          curl http://localhost/
       - name: Install test tools
         run: npm install
-      - name: check database
-        run: curl http://localhost:5984/argos
-      - name: check rewrite
-        run: curl http://localhost:5984/argos/_design/argos/_rewrite/
-      - name: check proxy
-        run: curl http://localhost/
       - name: Run tests
         run : npm test
         shell: 'script -q -e -c "bash {0}"'
