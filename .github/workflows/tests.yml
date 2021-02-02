@@ -10,7 +10,7 @@ jobs:
       - name: Install test tools
         run: npm install
       - name: Trigger indexing
-        run: curl --silent --max-time 2 http://localhost:5984/argos/_design/argos/_rewrite/
+        run: curl localhost:5984/argos/_design/argos/_rewrite/
       - name: Run tests
         run : npm test
         shell: 'script -q -e -c "bash {0}"'
