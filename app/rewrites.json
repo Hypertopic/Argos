@@ -30,9 +30,6 @@
     "from": "",
     "to": "../../"
   }, {
-    "from": "_session",
-    "to": "../../../_session"
-  }, {
     "from": "_users",
     "to": "../../../_users"
   }, {
