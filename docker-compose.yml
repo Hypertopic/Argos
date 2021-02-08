@@ -34,7 +34,7 @@ services:
     volumes:
       - ./__tests__/api/fixtures:/app
     depends_on:
-      - couchdb
+      - install
 
   install:
     image: benel/couchapp
