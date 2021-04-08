@@ -94,7 +94,7 @@ it('Get an item to get its highlights, attributes and topics', function () {
 });
 
 it('Get a resource to find the corresponding item (and corpus)', function() {
-  let resource = 'http://steatite.hypertopic.org/picture/8a1750b17b11944108efaac593f4448e4e9f966b';
+  let resource = 'https://steatite.utt.fr/picture/8a1750b17b11944108efaac593f4448e4e9f966b';
   return db.getView(`/item/?resource=${resource}`).then((x) => {
     expect(x[resource]).toBeDefined();
     expect(x[resource]).toMatchSchema(resource_schema);
