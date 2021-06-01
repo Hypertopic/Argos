@@ -14,6 +14,7 @@ function(o) {
       case "resource":
       case "items":
       case "topics":
+      case "record":
       case "highlights": return true;
     }
     return false;
