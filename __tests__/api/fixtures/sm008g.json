@@ -21,7 +21,8 @@
       }
    },
    "spatial" : "Église Sainte-Madeleine, Troyes",
-   "resource" : "https://steatite.utt.fr/picture/710a9531a5f6991321d3f27b637648c0cd5b7926",
+   "original" : "https://steatite.utt.fr/picture/710a9531a5f6991321d3f27b637648c0cd5b7926",
+   "resource" : "https://steatite.utt.fr/optimized/710a9531a5f6991321d3f27b637648c0cd5b7926",
    "thumbnail" : "https://steatite.utt.fr/thumbnail/710a9531a5f6991321d3f27b637648c0cd5b7926",
    "item_corpus" : "Vitraux - Bénel"
 }

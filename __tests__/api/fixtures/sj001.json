@@ -1,7 +1,8 @@
 {
    "_id" : "8d27115e20f9439b627ac511ade9a05bbe509130",
    "creator" : "Aurélien Bénel",
-   "resource" : "https://steatite.utt.fr/picture/8d27115e20f9439b627ac511ade9a05bbe509130",
+   "original" : "https://steatite.utt.fr/picture/8d27115e20f9439b627ac511ade9a05bbe509130",
+   "resource" : "https://steatite.utt.fr/optimized/8d27115e20f9439b627ac511ade9a05bbe509130",
    "thumbnail" : "https://steatite.utt.fr/thumbnail/8d27115e20f9439b627ac511ade9a05bbe509130",
    "item_corpus" : "Vitraux - Bénel",
    "created": "2016-06-18",

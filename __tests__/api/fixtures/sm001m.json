@@ -22,6 +22,7 @@
    "created":	"2016-03-13",
    "_id" : "ae85dceaa0279332c9ebb212af8a798e3cf365cc",
    "item_name" : "SM 001 m",
-   "resource" : "https://steatite.utt.fr/picture/ae85dceaa0279332c9ebb212af8a798e3cf365cc",
+   "original" : "https://steatite.utt.fr/picture/ae85dceaa0279332c9ebb212af8a798e3cf365cc",
+   "resource" : "https://steatite.utt.fr/optimized/ae85dceaa0279332c9ebb212af8a798e3cf365cc",
    "thumbnail" : "https://steatite.utt.fr/thumbnail/ae85dceaa0279332c9ebb212af8a798e3cf365cc"
 }
