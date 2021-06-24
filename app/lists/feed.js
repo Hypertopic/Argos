@@ -9,11 +9,17 @@ function (head, req) {
   send(uri);
   send('</link><description>Created or updated items.</description>');
   while(row = getRow()){
-    send(''.concat(
+      var i=0;
+      var topic="";
+      for (var t in row.doc.topics){
+        topic+=t+", ";
+      }
+      send(''.concat(
       '<item>',
       '<title>' + row.doc.item_name + '</title>',
-      '<description>Lieu : ' + row.doc.spatial + ' créé le ' + row.doc.created + '</description>',
+      '<description> Lieu : ' + row.doc.spatial + ' Créé le : ' + row.doc.created  + ' Catégorie(s) : ' + topic + '</description>',
       '<link>' + uri + '/item/' + row.doc.item_corpus + '/' + row.id + '</link>',
+	    '<guid>Modifié le : ' + row.doc.record.modified + '</guid>'
       '</item>'
     ));
   }

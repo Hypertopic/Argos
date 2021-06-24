@@ -43,12 +43,12 @@
       "reduce": "false"
     }
   }, {
-    "from": "feed/:corpus",
+    "from": "feed/:corpic",
     "to": "_list/feed/modified",
     "query": {
       "include_docs": "true",
-      "startkey": [":corpus"],
-      "endkey": [":corpus",{}]
+      "startkey": [":corpic"],
+      "endkey": [":corpic",{}]
     }
   }, {
     "from": "corpus/:corpus",
