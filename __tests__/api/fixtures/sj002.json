@@ -1,0 +1,19 @@
+{
+  "_id": "aa3ae9e5b438bddfcc9928bd31f39aab90208052",
+  "item_name": "SJ 002",
+  "original": "https://steatite.utt.fr/picture/aa3ae9e5b438bddfcc9928bd31f39aab90208052",
+  "resource": "https://steatite.utt.fr/optimized/aa3ae9e5b438bddfcc9928bd31f39aab90208052",
+  "thumbnail": "https://steatite.utt.fr/thumbnail/aa3ae9e5b438bddfcc9928bd31f39aab90208052",
+  "created": "2016-06-18",
+  "item_corpus": "Vitraux - Bénel",
+  "creator": "Aurélien Bénel",
+  "spatial": "Église Saint-Jean-au-Marché, Troyes",
+  "topics": {
+    "fe94b684b6a42c4889c1e0d7458b9526": {
+      "viewpoint": "a76306e4f17ed4f79e7e481eb9a1bd06"
+    },
+    "8d5941f18d853d45a9e726a0c55a7576": {
+      "viewpoint": "56e092d8a6179a788c74b618b29801c0"
+    }
+  }
+}
