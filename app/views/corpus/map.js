@@ -10,8 +10,6 @@ function(o) {
       case "couchapp":
       case "item_corpus":
       case "item_name":
-      case "thumbnail":
-      case "resource":
       case "items":
       case "topics":
       case "highlights": return true;
@@ -30,9 +28,7 @@ function(o) {
   } else if (o.item_corpus) { //item
     //item name, thumbnail and resource
     var entry = {
-      name:o.item_name,
-      thumbnail:o.thumbnail,
-      resource:o.resource
+      name:o.item_name
     };
     //item topics
     entry["topic"] = [];
