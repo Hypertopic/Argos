@@ -44,14 +44,9 @@ function(o) {
       });
     }
     //item-bound items
-    entry["item"] = [];
+    entry["item"] = o.items;
     for (var i in o.items) {
-      var item = {
-        corpus: o.items[i].corpus,
-        relation: o.items[i].relation,
-        id: i
-      };
-      entry["item"].push(item);
+      var item = o.items[i];
       emit([item.corpus, item.id], {
         item: {
           corpus:o.item_corpus,

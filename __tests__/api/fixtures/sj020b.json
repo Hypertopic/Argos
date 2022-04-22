@@ -28,10 +28,11 @@
       "viewpoint": "56e092d8a6179a788c74b618b29801c0"
     }
   },
-  "items": {
-    "54025bca2df1af9d7227904f82ab022b3242fde0": {
+  "items": [
+    {
       "corpus": "Vitraux - Bénel",
+      "id": "54025bca2df1af9d7227904f82ab022b3242fde0",
       "relation": "Suite du récit"
     }
-  }
+  ]
 }
