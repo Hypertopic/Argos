@@ -20,7 +20,7 @@ function(o) {
           id:t,
           name:topics[t].name
         });
-      } else for each(b in broader) {
+      } else for (let b of broader) {
         broaderArray.push({
           id:b,
           name:topics[b].name

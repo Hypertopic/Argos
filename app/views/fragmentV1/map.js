@@ -9,7 +9,7 @@ function(o) {
     return result;
   }
 
-  for each (h in o.highlights) {
+  for (let h of Object.values(o.highlights)) {
     emit([o._id, format(h.coordinates)],  {
       text: h.text,
       viewpoint: h.viewpoint,

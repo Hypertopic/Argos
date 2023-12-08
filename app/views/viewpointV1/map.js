@@ -3,7 +3,7 @@ function(o) {
     //viewpoint name
     emit([o._id], {name:o.viewpoint_name});
     //viewpoint users
-    for each (var u in o.users) {
+    for (let u of o.users) {
       emit([o._id], {user:u});
     }
     //topics
@@ -15,7 +15,7 @@ function(o) {
       var broader = topics[t].broader;
       if (broader==null || broader.length==0) {
         emit([o._id], {upper:{id:t, name:topics[t].name}});
-      } else for each(b in broader) {
+      } else for (let b of broader) {
         emit([o._id, t], {broader: {id:b, name:topics[b].name}});
         emit([o._id, b], {narrower: {id:t, name:topics[t].name}});
       }

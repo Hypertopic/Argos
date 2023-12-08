@@ -1,5 +1,5 @@
 function(o) {
-  for each (u in o.users) {
+  for (let u of o.users) {
     if (o.viewpoint_name) {
       emit([u], {viewpoint:{id:o._id, name:o.viewpoint_name}});
     } else if (o.corpus_name) {

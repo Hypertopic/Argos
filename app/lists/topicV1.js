@@ -39,20 +39,20 @@ function(head, req) {
     }
   }
   send('<topic name="'+util.xmlencode(name)+'">\n');
-  for each (b in broader) {
+  for (let b of broader) {
     send('<relatedTopic href="'+b.id+'" relationType="includedIn">');
     send(b.name);
     send('</relatedTopic>\n');
   }
-  for each (n in narrower) {
+  for (let n of narrower) {
     send('<relatedTopic href="'+n.id+'" relationType="includes">');
     send(n.name);
     send('</relatedTopic>\n');
   }
-  for each (i in items) {
+  for (let i of items) {
     send('<entity href="../../../entity/'+util.urlencode(i.corpus)+"/"+i.id+'"/>\n');
   }
-  for each (h in highlights) {
+  for (let h of Object.values(highlights)) {
     send('<entity href="../../../entity/'+util.urlencode(h.corpus)+"/"+h.item+"/");
     send(format(h.coordinates)+'">');
     send(util.xmlencode(h.text));

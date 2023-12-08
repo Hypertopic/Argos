@@ -6,13 +6,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install and run Argos with test data
-        run: docker-compose up -d
+        run: |
+          export COUCHDB_USER="TO_BE_CHANGED"
+          export COUCHDB_PASSWORD="TO_BE_CHANGED"
+          docker-compose up -d
       - name: Install test tools
         run: npm install
-      - uses: nev7n/wait_for_response@v1
+      - name: Wait for database service
+        uses: docker://benel/wait-for-response:1
         with:
-          url: http://localhost/
-          responseCode: 200
+          args: http://localhost:5984/argos 401 5000 500
+      - name: Enable public access
+        run: |
+          export COUCHDB_USER="TO_BE_CHANGED"
+          export COUCHDB_PASSWORD="TO_BE_CHANGED"
+          curl -X PUT -u "${COUCHDB_USER}:${COUCHDB_PASSWORD}" -s localhost:5984/argos/_security --data '{"members":{"roles":[]},"admins":{"roles":["_admin"]}}'
       - name: Run tests
         run : npm test
         shell: 'script -q -e -c "bash {0}"'

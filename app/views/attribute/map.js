@@ -29,8 +29,8 @@ function(o) {
             [o.item_corpus, key, value], 
             {item:{id:o._id, name: o.item_name}}
           );
-        } else {
-          for each (v in value) {
+        } else { //array
+          for (let v of value) {
             emit(
               [o.item_corpus, key, v], 
               {item:{id:o._id, name: o.item_name}}

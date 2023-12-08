@@ -17,7 +17,7 @@ function(head, req) {
     }
   }
   send('<viewpoint name="'+name+'">\n');
-  for each (t in topics) {
+  for (let t of Object.values(topics)) {
     send('<topic href="topic/'+t.id+'">'+t.name+'</topic>\n');
   }
   send('</viewpoint>\n');
